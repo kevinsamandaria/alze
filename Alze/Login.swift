@@ -52,7 +52,7 @@ struct Login: View {
     private func showAppleLogin(){
         let request = ASAuthorizationAppleIDProvider().createRequest()
         
-        request.requestedScopes = [.fullName, .email]mas
+        request.requestedScopes = [.fullName, .email]
         
     }
     
