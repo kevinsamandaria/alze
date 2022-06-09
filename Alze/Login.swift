@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import UIKit
 import AuthenticationServices
 
 struct Login: View {
     @Environment(\.colorScheme) var colorScheme
     var body: some View {
-        NavigationView{
+        ZStack{
             VStack{
                 
                 Text("Hi there, \nI'm Alze")
@@ -24,16 +25,20 @@ struct Login: View {
                 
                 Text("Create an account or log in using your Apple ID").font(.system(size: 10, weight: .regular))
                     .foregroundColor(K.CustomColor.color1)
-                SignInWithAppleButton(.continue) { request in
-                     
-                } onCompletion: { result in
-                        
-                }
-                .signInWithAppleButtonStyle(
-                    colorScheme == .dark ? .white : .black
-                )
-                .frame(width: 235, height: 45)
-                .cornerRadius(25)
+                SignInWithApple()
+                    .frame(width: 280, height: 50)
+                    .cornerRadius(25)
+                    .onTapGesture(perform: showAppleLogin)
+//                SignInWithAppleButton(.continue) { request in
+//
+//                } onCompletion: { result in
+//
+//                }
+//                .signInWithAppleButtonStyle(
+//                    colorScheme == .dark ? .white : .black
+//                )
+//                .frame(width: 280, height: 60)
+//                .cornerRadius(30)
                 Text("By using our services you are agreeing to our \nTerms and Privacy Statements")
                     .font(.system(size: 11, weight: .light))
                     .multilineTextAlignment(.center)
@@ -41,10 +46,17 @@ struct Login: View {
                     .padding(.top, 100)
                 
             }
-//            .navigationTitle("Sign In")
         }
         
     }
+    private func showAppleLogin(){
+        let request = ASAuthorizationAppleIDProvider().createRequest()
+        
+        request.requestedScopes = [.fullName, .email]mas
+        
+    }
+    
+    
 }
 
 struct Login_Previews: PreviewProvider {
