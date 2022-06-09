@@ -11,6 +11,7 @@ import AuthenticationServices
 
 struct Login: View {
     @Environment(\.colorScheme) var colorScheme
+    @State var appleDelegate: SignInWithAppleDelegates! = nil
     var body: some View {
         ZStack{
             VStack{
@@ -26,8 +27,8 @@ struct Login: View {
                 Text("Create an account or log in using your Apple ID").font(.system(size: 10, weight: .regular))
                     .foregroundColor(K.CustomColor.color1)
                 SignInWithApple()
-                    .frame(width: 280, height: 50)
-                    .cornerRadius(25)
+                    .frame(width: K.screenSize.width * 0.8, height: 45)
+                    .cornerRadius(45 / 2)
                     .onTapGesture(perform: showAppleLogin)
 //                SignInWithAppleButton(.continue) { request in
 //
@@ -47,6 +48,9 @@ struct Login: View {
                 
             }
         }
+        .onAppear{
+            self.performExistingAccountSetupFlows()
+        }
         
     }
     private func showAppleLogin(){
@@ -54,6 +58,32 @@ struct Login: View {
         
         request.requestedScopes = [.fullName, .email]
         
+        performSignIn(using: [request])
+    }
+    
+    
+    private func performExistingAccountSetupFlows(){
+        let requests = [
+            ASAuthorizationAppleIDProvider().createRequest(),
+            ASAuthorizationPasswordProvider().createRequest()
+        ]
+        
+        performSignIn(using: requests)
+        
+    }
+    
+    private func performSignIn(using requests: [ASAuthorizationRequest]){
+        
+        appleDelegate = SignInWithAppleDelegates(onSignedIn: { success in
+            if success{
+                
+            }else{
+                
+            }
+        })
+        let controller = ASAuthorizationController(authorizationRequests: requests)
+        controller.delegate = appleDelegate
+        controller.performRequests()
     }
     
     
