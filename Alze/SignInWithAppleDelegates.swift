@@ -11,19 +11,21 @@ import Contacts
 
 class SignInWithAppleDelegates: NSObject {
     private let signInSucceeded: (Bool) -> Void
-//    private weak var window: UIWindow!
+    private weak var window: UIWindow!
     
-//    init(window: UIWindow?, onSignedIn: @escaping(Bool) -> Void){
-//        self.window = window
-//        self.signInSucceeded = onSignedIn
-//    }
-    init(onSignedIn: @escaping(Bool) -> Void){
+    init(window: UIWindow?, onSignedIn: @escaping(Bool) -> Void){
+        self.window = window
         self.signInSucceeded = onSignedIn
     }
+//    init(onSignedIn: @escaping(Bool) -> Void){
+//        self.signInSucceeded = onSignedIn
+//    }
 }
 
 extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("\n -- ASAuthorizationControllerDelegate -\(#function) -- \n")
+        print(error)
     }
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential{
@@ -55,6 +57,7 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
         
         do{
             try keychain.store(userData)
+            print(userData.identifier)
         } catch{
             self.signInSucceeded(false)
         }
@@ -68,7 +71,14 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
     }
     
     private func signInWithExitingAccount(credential: ASAuthorizationAppleIDCredential){
+        
         self.signInSucceeded(true)
     }
     
+}
+
+extension SignInWithAppleDelegates: ASAuthorizationControllerPresentationContextProviding{
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return self.window
+    }
 }

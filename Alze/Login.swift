@@ -11,6 +11,8 @@ import AuthenticationServices
 
 struct Login: View {
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.window) var window: UIWindow?
+    @State private var isSuccess = false
     @State var appleDelegate: SignInWithAppleDelegates! = nil
     var body: some View {
         ZStack{
@@ -19,36 +21,33 @@ struct Login: View {
                 Text("Hi there, \nI'm Alze")
                     .font(.system(size: 41, weight: .semibold))
                     .foregroundColor(K.CustomColor.color1)
-                Image("pencil").resizable().scaledToFit().frame(width: 100, height: 100, alignment: .center)
+                    .padding(.top, 50)
+                Image("pencil").resizable().scaledToFit().frame(width: 150, height: 150, alignment: .center)
                 Text("Your new alzheimer's \ncare companion").font(.system(size: 16, weight: .light))
-                    .foregroundColor(K.CustomColor.color1).padding(.bottom, 100)
+                    .foregroundColor(K.CustomColor.color1).padding(.bottom, 120)
                     .multilineTextAlignment(.center)
                 
                 Text("Create an account or log in using your Apple ID").font(.system(size: 10, weight: .regular))
                     .foregroundColor(K.CustomColor.color1)
+                    .padding(.bottom, 24)
+                
+
                 SignInWithApple()
                     .frame(width: K.screenSize.width * 0.8, height: 45)
                     .cornerRadius(45 / 2)
                     .onTapGesture(perform: showAppleLogin)
-//                SignInWithAppleButton(.continue) { request in
-//
-//                } onCompletion: { result in
-//
-//                }
-//                .signInWithAppleButtonStyle(
-//                    colorScheme == .dark ? .white : .black
-//                )
-//                .frame(width: 280, height: 60)
-//                .cornerRadius(30)
-                Text("By using our services you are agreeing to our \nTerms and Privacy Statements")
-                    .font(.system(size: 11, weight: .light))
+                    .fullScreenCover(isPresented: $isSuccess) {
+                        ContentView()
+                    }
+                Spacer()
+                Text("By using our services you are agreeing to our \n **Terms** and **Privacy Statements**")
+                    .font(.system(size: 11))
                     .multilineTextAlignment(.center)
                     .foregroundColor(K.CustomColor.color1)
-                    .padding(.top, 100)
-                
             }
         }
         .onAppear{
+            
             self.performExistingAccountSetupFlows()
         }
         
@@ -67,22 +66,25 @@ struct Login: View {
             ASAuthorizationAppleIDProvider().createRequest(),
             ASAuthorizationPasswordProvider().createRequest()
         ]
-        
+
+
         performSignIn(using: requests)
-        
     }
     
     private func performSignIn(using requests: [ASAuthorizationRequest]){
         
-        appleDelegate = SignInWithAppleDelegates(onSignedIn: { success in
+        appleDelegate = SignInWithAppleDelegates(window: window) { success in
             if success{
+                isSuccess = success
                 
+
             }else{
-                
+                isSuccess = success
             }
-        })
+        }
         let controller = ASAuthorizationController(authorizationRequests: requests)
         controller.delegate = appleDelegate
+        controller.presentationContextProvider = appleDelegate
         controller.performRequests()
     }
     

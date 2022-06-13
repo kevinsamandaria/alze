@@ -44,6 +44,7 @@ extension Keychain{
 
       guard status != errSecItemNotFound else { throw KeychainError.notFound }
       guard status == noErr else { throw KeychainError.secCallFailed(status) }
+        print(status)
 
       do {
         guard
