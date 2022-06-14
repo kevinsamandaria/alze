@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 public struct K{
+    static let screenSize = UIScreen.main.bounds
+
     struct CustomColor{
         static let color = Color("Color")
         static let color1 = Color("Color-1")
