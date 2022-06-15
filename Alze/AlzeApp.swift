@@ -12,7 +12,8 @@ struct AlzeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AddGoal()
+
+            Main()
 //            Login()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
