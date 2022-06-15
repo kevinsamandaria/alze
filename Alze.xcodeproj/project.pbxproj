@@ -17,6 +17,11 @@
 		7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */; };
 		7CE3F06F2850832E009C9524 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F06E2850832E009C9524 /* Login.swift */; };
 		7CE3F0712850B9E3009C9524 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F0702850B9E3009C9524 /* K.swift */; };
+		E226BCA42851FCB000A8ADAF /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E226BCA32851FCB000A8ADAF /* ReminderView.swift */; };
+		E229A69328571CA700EBA775 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E229A69228571CA700EBA775 /* DummyData.swift */; };
+		E239E3E4285837CB00A0C6C1 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */; };
+		E239E3E6285888AE00A0C6C1 /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */; };
+		E258D97E2859D1A500064842 /* PillModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258D97D2859D1A500064842 /* PillModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegates.swift; sourceTree = "<group>"; };
 		7CE3F06E2850832E009C9524 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7CE3F0702850B9E3009C9524 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		E226BCA32851FCB000A8ADAF /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
+		E229A69228571CA700EBA775 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
+		E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
+		E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
+		E258D97D2859D1A500064842 /* PillModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +74,13 @@
 		7C65169E284E60C20072348A /* Alze */ = {
 			isa = PBXGroup;
 			children = (
+				E229A69128571C8800EBA775 /* Dummy Data */,
 				7CB199092851A67300727A27 /* Alze.entitlements */,
 				7C65169F284E60C20072348A /* AlzeApp.swift */,
+				E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */,
+				E258D97D2859D1A500064842 /* PillModalView.swift */,
+				E226BCA32851FCB000A8ADAF /* ReminderView.swift */,
+				E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */,
 				7CE3F06E2850832E009C9524 /* Login.swift */,
 				7C6516A1284E60C20072348A /* ContentView.swift */,
 				7C6516A3284E60C50072348A /* Assets.xcassets */,
@@ -85,6 +100,14 @@
 				7C6516A6284E60C50072348A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E229A69128571C8800EBA775 /* Dummy Data */ = {
+			isa = PBXGroup;
+			children = (
+				E229A69228571CA700EBA775 /* DummyData.swift */,
+			);
+			path = "Dummy Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,12 +181,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6516A9284E60C50072348A /* Persistence.swift in Sources */,
+				E239E3E4285837CB00A0C6C1 /* CustomToggle.swift in Sources */,
+				E239E3E6285888AE00A0C6C1 /* AddReminderView.swift in Sources */,
 				7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */,
 				7CE3F06F2850832E009C9524 /* Login.swift in Sources */,
+				E258D97E2859D1A500064842 /* PillModalView.swift in Sources */,
 				7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */,
 				7CE3F0712850B9E3009C9524 /* K.swift in Sources */,
+				E226BCA42851FCB000A8ADAF /* ReminderView.swift in Sources */,
 				7C6516A2284E60C20072348A /* ContentView.swift in Sources */,
 				7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */,
+				E229A69328571CA700EBA775 /* DummyData.swift in Sources */,
 				7CB1990B2851A7A600727A27 /* SignInWithApple.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +331,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -327,7 +356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Alze/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8W8G9585D3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -335,6 +364,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
