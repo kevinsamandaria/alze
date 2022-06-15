@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490A3A6528597E06006E1568 /* AddGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A6428597E06006E1568 /* AddGoal.swift */; };
 		7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65169F284E60C20072348A /* AlzeApp.swift */; };
 		7C6516A2284E60C20072348A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6516A1284E60C20072348A /* ContentView.swift */; };
 		7C6516A4284E60C50072348A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6516A3284E60C50072348A /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490A3A6428597E06006E1568 /* AddGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoal.swift; sourceTree = "<group>"; };
 		7C65169C284E60C20072348A /* Alze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C65169F284E60C20072348A /* AlzeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzeApp.swift; sourceTree = "<group>"; };
 		7C6516A1284E60C20072348A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				7CB199092851A67300727A27 /* Alze.entitlements */,
 				7C65169F284E60C20072348A /* AlzeApp.swift */,
+				490A3A6428597E06006E1568 /* AddGoal.swift */,
 				7CE3F06E2850832E009C9524 /* Login.swift */,
 				7C6516A1284E60C20072348A /* ContentView.swift */,
 				7C6516A3284E60C50072348A /* Assets.xcassets */,
@@ -161,6 +164,7 @@
 				7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */,
 				7CE3F06F2850832E009C9524 /* Login.swift in Sources */,
 				7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */,
+				490A3A6528597E06006E1568 /* AddGoal.swift in Sources */,
 				7CE3F0712850B9E3009C9524 /* K.swift in Sources */,
 				7C6516A2284E60C20072348A /* ContentView.swift in Sources */,
 				7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */,
