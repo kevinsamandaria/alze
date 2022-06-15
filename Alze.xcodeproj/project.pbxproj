@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490A3A5F285850D0006E1568 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A5E285850D0006E1568 /* Main.swift */; };
+		490A3A61285853A3006E1568 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A60285853A3006E1568 /* Home.swift */; };
 		7C2F792D2855CBF50026679E /* SceneDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2F792C2855CBF50026679E /* SceneDelegates.swift */; };
 		7C48C6E32851E175005A3AA0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E22851E175005A3AA0 /* UserData.swift */; };
 		7C48C6E52851E495005A3AA0 /* UserDataKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */; };
@@ -26,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
+		490A3A5E285850D0006E1568 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		490A3A60285853A3006E1568 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7C2F792C2855CBF50026679E /* SceneDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegates.swift; sourceTree = "<group>"; };
 		7C48C6E22851E175005A3AA0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataKeychain.swift; sourceTree = "<group>"; };
@@ -89,6 +94,8 @@
 				7CB199092851A67300727A27 /* Alze.entitlements */,
 				7C65169F284E60C20072348A /* AlzeApp.swift */,
 				7CE3F06E2850832E009C9524 /* Login.swift */,
+				490A3A60285853A3006E1568 /* Home.swift */,
+				490A3A5E285850D0006E1568 /* Main.swift */,
 				7C6516A1284E60C20072348A /* ContentView.swift */,
 				7C6516A3284E60C50072348A /* Assets.xcassets */,
 				7C6516A8284E60C50072348A /* Persistence.swift */,
@@ -185,9 +192,11 @@
 			files = (
 				7C6516A9284E60C50072348A /* Persistence.swift in Sources */,
 				7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */,
+				490A3A61285853A3006E1568 /* Home.swift in Sources */,
 				7CE3F06F2850832E009C9524 /* Login.swift in Sources */,
 				7C48C6EC2851F2FA005A3AA0 /* EnvironmentWindowKey.swift in Sources */,
 				7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */,
+				490A3A5F285850D0006E1568 /* Main.swift in Sources */,
 				7C48C6E52851E495005A3AA0 /* UserDataKeychain.swift in Sources */,
 				7C48C6E82851E4EF005A3AA0 /* Keychain.swift in Sources */,
 				7CE3F0712850B9E3009C9524 /* K.swift in Sources */,
