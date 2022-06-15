@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		490A3A5F285850D0006E1568 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A5E285850D0006E1568 /* Main.swift */; };
 		490A3A61285853A3006E1568 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A60285853A3006E1568 /* Home.swift */; };
+		7C2F792D2855CBF50026679E /* SceneDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2F792C2855CBF50026679E /* SceneDelegates.swift */; };
+		7C48C6E32851E175005A3AA0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E22851E175005A3AA0 /* UserData.swift */; };
+		7C48C6E52851E495005A3AA0 /* UserDataKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */; };
+		7C48C6E82851E4EF005A3AA0 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E72851E4EF005A3AA0 /* Keychain.swift */; };
+		7C48C6EA2851E7A1005A3AA0 /* WebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E92851E7A1005A3AA0 /* WebApi.swift */; };
+		7C48C6EC2851F2FA005A3AA0 /* EnvironmentWindowKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6EB2851F2FA005A3AA0 /* EnvironmentWindowKey.swift */; };
 		7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65169F284E60C20072348A /* AlzeApp.swift */; };
 		7C6516A2284E60C20072348A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6516A1284E60C20072348A /* ContentView.swift */; };
 		7C6516A4284E60C50072348A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6516A3284E60C50072348A /* Assets.xcassets */; };
@@ -22,8 +28,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+
 		490A3A5E285850D0006E1568 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		490A3A60285853A3006E1568 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		7C2F792C2855CBF50026679E /* SceneDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegates.swift; sourceTree = "<group>"; };
+		7C48C6E22851E175005A3AA0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataKeychain.swift; sourceTree = "<group>"; };
+		7C48C6E72851E4EF005A3AA0 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		7C48C6E92851E7A1005A3AA0 /* WebApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebApi.swift; sourceTree = "<group>"; };
+		7C48C6EB2851F2FA005A3AA0 /* EnvironmentWindowKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentWindowKey.swift; sourceTree = "<group>"; };
 		7C65169C284E60C20072348A /* Alze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C65169F284E60C20072348A /* AlzeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzeApp.swift; sourceTree = "<group>"; };
 		7C6516A1284E60C20072348A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +62,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C48C6E62851E49A005A3AA0 /* CredentialStorage */ = {
+			isa = PBXGroup;
+			children = (
+				7C48C6E22851E175005A3AA0 /* UserData.swift */,
+				7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */,
+				7C48C6E72851E4EF005A3AA0 /* Keychain.swift */,
+			);
+			path = CredentialStorage;
+			sourceTree = "<group>";
+		};
 		7C651693284E60C20072348A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +104,10 @@
 				7CE3F0702850B9E3009C9524 /* K.swift */,
 				7CB1990A2851A7A600727A27 /* SignInWithApple.swift */,
 				7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */,
+				7C48C6E62851E49A005A3AA0 /* CredentialStorage */,
+				7C48C6E92851E7A1005A3AA0 /* WebApi.swift */,
+				7C48C6EB2851F2FA005A3AA0 /* EnvironmentWindowKey.swift */,
+				7C2F792C2855CBF50026679E /* SceneDelegates.swift */,
 			);
 			path = Alze;
 			sourceTree = "<group>";
@@ -167,12 +194,18 @@
 				7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */,
 				490A3A61285853A3006E1568 /* Home.swift in Sources */,
 				7CE3F06F2850832E009C9524 /* Login.swift in Sources */,
+				7C48C6EC2851F2FA005A3AA0 /* EnvironmentWindowKey.swift in Sources */,
 				7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */,
 				490A3A5F285850D0006E1568 /* Main.swift in Sources */,
+				7C48C6E52851E495005A3AA0 /* UserDataKeychain.swift in Sources */,
+				7C48C6E82851E4EF005A3AA0 /* Keychain.swift in Sources */,
 				7CE3F0712850B9E3009C9524 /* K.swift in Sources */,
 				7C6516A2284E60C20072348A /* ContentView.swift in Sources */,
 				7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */,
+				7C48C6E32851E175005A3AA0 /* UserData.swift in Sources */,
 				7CB1990B2851A7A600727A27 /* SignInWithApple.swift in Sources */,
+				7C48C6EA2851E7A1005A3AA0 /* WebApi.swift in Sources */,
+				7C2F792D2855CBF50026679E /* SceneDelegates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
