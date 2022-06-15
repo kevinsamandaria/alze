@@ -12,6 +12,9 @@ struct AlzeApp: App {
 
     var body: some Scene {
         WindowGroup {
+// <<<<<<< Reminder
+//             AddReminderView()
+//                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
 
             Main()
 //            Login()
