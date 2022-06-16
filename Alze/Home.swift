@@ -15,7 +15,7 @@ struct Reminder: Identifiable {
     var detail: String
 }
 
-struct Card: View {
+struct CardReminder: View {
     let reminder: Reminder
     
     var body: some View {
@@ -59,7 +59,7 @@ struct Goal: Identifiable {
     
 }
 
-struct Group: View {
+struct CardGoal: View {
     let goal: Goal
     
     var body: some View {
@@ -169,7 +169,7 @@ struct Home: View {
             ScrollView(.horizontal) {
                 HStack(spacing: 16) {
                     ForEach(reminders) { reminder in
-                        Card(reminder: reminder)
+                        CardReminder(reminder: reminder)
                     }
                 }.padding(16)
             }
@@ -182,7 +182,7 @@ struct Home: View {
 
             LazyVGrid(columns: columns, spacing: 8) {
                 ForEach(goals) { row in
-                    Group(goal: row)
+                    CardGoal(goal: row)
                 }
             }.padding(.vertical).padding(.horizontal)
             
