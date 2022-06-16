@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490A3A6528597E06006E1568 /* AddGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A6428597E06006E1568 /* AddGoal.swift */; };
-
 		490A3A5F285850D0006E1568 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A5E285850D0006E1568 /* Main.swift */; };
 		490A3A61285853A3006E1568 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A60285853A3006E1568 /* Home.swift */; };
+		490A3A6528597E06006E1568 /* AddGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A6428597E06006E1568 /* AddGoal.swift */; };
 		7C2F792D2855CBF50026679E /* SceneDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2F792C2855CBF50026679E /* SceneDelegates.swift */; };
 		7C48C6E32851E175005A3AA0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E22851E175005A3AA0 /* UserData.swift */; };
 		7C48C6E52851E495005A3AA0 /* UserDataKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */; };
@@ -35,10 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		490A3A6428597E06006E1568 /* AddGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoal.swift; sourceTree = "<group>"; };
-
 		490A3A5E285850D0006E1568 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		490A3A60285853A3006E1568 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		490A3A6428597E06006E1568 /* AddGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoal.swift; sourceTree = "<group>"; };
 		7C2F792C2855CBF50026679E /* SceneDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegates.swift; sourceTree = "<group>"; };
 		7C48C6E22851E175005A3AA0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataKeychain.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 				E229A69128571C8800EBA775 /* Dummy Data */,
 				7CB199092851A67300727A27 /* Alze.entitlements */,
 				7C65169F284E60C20072348A /* AlzeApp.swift */,
-
 				E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */,
 				E258D97D2859D1A500064842 /* PillModalView.swift */,
 				E226BCA32851FCB000A8ADAF /* ReminderView.swift */,
@@ -228,7 +225,6 @@
 				7C48C6EC2851F2FA005A3AA0 /* EnvironmentWindowKey.swift in Sources */,
 				7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */,
 				490A3A6528597E06006E1568 /* AddGoal.swift in Sources */,
-
 				490A3A5F285850D0006E1568 /* Main.swift in Sources */,
 				7C48C6E52851E495005A3AA0 /* UserDataKeychain.swift in Sources */,
 				7C48C6E82851E4EF005A3AA0 /* Keychain.swift in Sources */,
@@ -371,7 +367,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Alze/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4NQ864VCNU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -385,7 +381,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mc2Afternoon3.Alze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -404,7 +400,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Alze/Preview Content\"";
-				DEVELOPMENT_TEAM = 8W8G9585D3;
+				DEVELOPMENT_TEAM = 4NQ864VCNU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -418,7 +414,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mc2Afternoon3.Alze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alze;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
