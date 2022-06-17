@@ -16,5 +16,8 @@ public struct K{
         static let color2 = Color("Color-2")
         static let color3 = Color("Color-3")
         static let color4 = Color("Color-4")
+        static let color5 = Color("Color-5")
+        static let color6 = Color("Color-6")
+        static let color7 = Color("Color-7")
     }
 }
