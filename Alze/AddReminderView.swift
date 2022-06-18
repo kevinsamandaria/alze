@@ -23,6 +23,7 @@ struct AddReminderView: View {
                     VStack(spacing: 8){
                         Text("Medicine Name")
                             .font(.system(size: 16))
+                            .fontWeight(.medium)
                             .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 20, idealHeight: 20, maxHeight: 20, alignment: .leading)
                         
                         TextField("Medicine Name...", text: $medicineName )
@@ -41,6 +42,7 @@ struct AddReminderView: View {
                     VStack(spacing: 8){
                         Text("How To Use")
                             .font(.system(size: 16))
+                            .fontWeight(.medium)
                             .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 20, idealHeight: 20, maxHeight: 20, alignment: .leading)
                         HStack(spacing: 16){
                             Button("Before Eat") {
@@ -79,6 +81,7 @@ struct AddReminderView: View {
                         VStack(alignment: .leading, spacing: 8){
                             Text("Type")
                                 .font(.system(size: 16))
+                                .fontWeight(.medium)
                             ZStack{
                                 Button {
                                     showModal = true
@@ -109,6 +112,7 @@ struct AddReminderView: View {
                         VStack(alignment: .leading, spacing: 8){
                             Text("Time")
                                 .font(.system(size: 16))
+                                .fontWeight(.medium)
                             
                             Button {
                                 showModal = true
@@ -137,7 +141,7 @@ struct AddReminderView: View {
                 //Notification
                 Group{
                     Toggle("Notification", isOn: $notifToggle)
-                        .font(.system(size: 24))
+                        .font(.title2)
 
                     if notifToggle{
                         Text("hi")
