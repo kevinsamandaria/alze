@@ -1,5 +1,5 @@
 //
-//  PersonalDescView.swift
+//  MobilityDescView.swift
 //  Alze
 //
 //  Created by Kevin  Sam Andaria on 16/06/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PersonalDescView: View {
+struct MobilityDescView: View {
     @State var onTap:Bool = true
     @State var solvedBy:String = ""
     @State var notes:String = ""
@@ -25,24 +25,25 @@ struct PersonalDescView: View {
                                 .fontWeight(.medium)
                                 .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: .leading)
                             
-                            Text("Personal Care")
+                            Text("*Type")
                                 .font(.system(size: 16))
-                                .frame(width: 120, height: 30)
+                                .frame(width: 75, height: 30)
                                 .foregroundColor(.white)
-                                .background(K.CustomColor.color6.cornerRadius(8))
+                                .background(K.CustomColor.color5.cornerRadius(8))
                         }
                     }
                     
                     //Description
                     Group{
-                        VStack(){
-                            Text("Description")
-                                .font(.title3)
-                                .fontWeight(.medium)
-                                .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 25, idealHeight: 25, maxHeight: 25, alignment: .leading)
-                            
-                            Text(desc)
-                                .fixedSize(horizontal: false, vertical: true)
+    //                    GeometryReader { proxy in
+                            VStack(){
+                                Text("Description")
+                                    .font(.title3)
+                                    .fontWeight(.medium)
+                                    .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 25, idealHeight: 25, maxHeight: 25, alignment: .leading)
+
+                                Text(desc)
+                                    .fixedSize(horizontal: false, vertical: true)
                         }
                     }
                     
@@ -118,8 +119,8 @@ struct PersonalDescView: View {
     }
 }
 
-struct PersonalDescView_Previews: PreviewProvider {
+struct MobilityDescView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonalDescView()
+        MobilityDescView()
     }
 }
