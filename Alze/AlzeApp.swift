@@ -16,7 +16,8 @@ struct AlzeApp: App {
 //             AddReminderView()
 //                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
 
-            GoalList()
+            Home()
+//            GoalList()
 //            MobilityDescView()
 //            Login()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
