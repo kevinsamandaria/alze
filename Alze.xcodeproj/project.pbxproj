@@ -16,16 +16,20 @@
 		7C48C6E82851E4EF005A3AA0 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E72851E4EF005A3AA0 /* Keychain.swift */; };
 		7C48C6EA2851E7A1005A3AA0 /* WebApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E92851E7A1005A3AA0 /* WebApi.swift */; };
 		7C48C6EC2851F2FA005A3AA0 /* EnvironmentWindowKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6EB2851F2FA005A3AA0 /* EnvironmentWindowKey.swift */; };
+		7C553B5A285E4DA100BB1F0A /* GoalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C553B59285E4DA100BB1F0A /* GoalList.swift */; };
 		7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C65169F284E60C20072348A /* AlzeApp.swift */; };
 		7C6516A2284E60C20072348A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6516A1284E60C20072348A /* ContentView.swift */; };
 		7C6516A4284E60C50072348A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6516A3284E60C50072348A /* Assets.xcassets */; };
 		7C6516A7284E60C50072348A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6516A6284E60C50072348A /* Preview Assets.xcassets */; };
 		7C6516A9284E60C50072348A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6516A8284E60C50072348A /* Persistence.swift */; };
 		7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C6516AA284E60C50072348A /* Alze.xcdatamodeld */; };
+		7C729301285EE5F5004EAE6E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C729300285EE5F5004EAE6E /* Utils.swift */; };
+		7C812744285F9F06008A5A01 /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C812743285F9F06008A5A01 /* GoalModel.swift */; };
 		7CB1990B2851A7A600727A27 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1990A2851A7A600727A27 /* SignInWithApple.swift */; };
 		7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */; };
 		7CE3F06F2850832E009C9524 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F06E2850832E009C9524 /* Login.swift */; };
 		7CE3F0712850B9E3009C9524 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F0702850B9E3009C9524 /* K.swift */; };
+		7CF755B52860F32F00E09C15 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF755B42860F32F00E09C15 /* GoalViewModel.swift */; };
 		E226BCA42851FCB000A8ADAF /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E226BCA32851FCB000A8ADAF /* ReminderView.swift */; };
 		E229A69328571CA700EBA775 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E229A69228571CA700EBA775 /* DummyData.swift */; };
 		E239E3E4285837CB00A0C6C1 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */; };
@@ -46,6 +50,7 @@
 		7C48C6E72851E4EF005A3AA0 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		7C48C6E92851E7A1005A3AA0 /* WebApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebApi.swift; sourceTree = "<group>"; };
 		7C48C6EB2851F2FA005A3AA0 /* EnvironmentWindowKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentWindowKey.swift; sourceTree = "<group>"; };
+		7C553B59285E4DA100BB1F0A /* GoalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalList.swift; sourceTree = "<group>"; };
 		7C65169C284E60C20072348A /* Alze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C65169F284E60C20072348A /* AlzeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlzeApp.swift; sourceTree = "<group>"; };
 		7C6516A1284E60C20072348A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,11 +58,14 @@
 		7C6516A6284E60C50072348A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C6516A8284E60C50072348A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7C6516AB284E60C50072348A /* Alze.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alze.xcdatamodel; sourceTree = "<group>"; };
+		7C729300285EE5F5004EAE6E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		7C812743285F9F06008A5A01 /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
 		7CB199092851A67300727A27 /* Alze.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Alze.entitlements; sourceTree = "<group>"; };
 		7CB1990A2851A7A600727A27 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
 		7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegates.swift; sourceTree = "<group>"; };
 		7CE3F06E2850832E009C9524 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7CE3F0702850B9E3009C9524 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		7CF755B42860F32F00E09C15 /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
 		E226BCA32851FCB000A8ADAF /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		E229A69228571CA700EBA775 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
@@ -121,6 +129,8 @@
 				490A3A6428597E06006E1568 /* AddGoal.swift */,
 				7CE3F06E2850832E009C9524 /* Login.swift */,
 				490A3A60285853A3006E1568 /* Home.swift */,
+				7C553B59285E4DA100BB1F0A /* GoalList.swift */,
+				7C812745285F9F23008A5A01 /* Model */,
 				490A3A5E285850D0006E1568 /* Main.swift */,
 				7C6516A1284E60C20072348A /* ContentView.swift */,
 				7C6516A3284E60C50072348A /* Assets.xcassets */,
@@ -134,6 +144,7 @@
 				7C48C6E92851E7A1005A3AA0 /* WebApi.swift */,
 				7C48C6EB2851F2FA005A3AA0 /* EnvironmentWindowKey.swift */,
 				7C2F792C2855CBF50026679E /* SceneDelegates.swift */,
+				7C729300285EE5F5004EAE6E /* Utils.swift */,
 			);
 			path = Alze;
 			sourceTree = "<group>";
@@ -144,6 +155,15 @@
 				7C6516A6284E60C50072348A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7C812745285F9F23008A5A01 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C812743285F9F06008A5A01 /* GoalModel.swift */,
+				7CF755B42860F32F00E09C15 /* GoalViewModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E229A69128571C8800EBA775 /* Dummy Data */ = {
@@ -226,17 +246,21 @@
 			files = (
 				E270CC8D285B3D97007BE832 /* PersonalDescView.swift in Sources */,
 				7C6516A9284E60C50072348A /* Persistence.swift in Sources */,
+				7C729301285EE5F5004EAE6E /* Utils.swift in Sources */,
 				E239E3E4285837CB00A0C6C1 /* CustomToggle.swift in Sources */,
 				E239E3E6285888AE00A0C6C1 /* AddReminderView.swift in Sources */,
 				7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */,
 				490A3A61285853A3006E1568 /* Home.swift in Sources */,
+				7CF755B52860F32F00E09C15 /* GoalViewModel.swift in Sources */,
 				7CE3F06F2850832E009C9524 /* Login.swift in Sources */,
 				E270CC8B285B3D52007BE832 /* CognitionDescView.swift in Sources */,
 				E258D97E2859D1A500064842 /* PillModalView.swift in Sources */,
 				7C48C6EC2851F2FA005A3AA0 /* EnvironmentWindowKey.swift in Sources */,
+				7C812744285F9F06008A5A01 /* GoalModel.swift in Sources */,
 				7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */,
 				490A3A6528597E06006E1568 /* AddGoal.swift in Sources */,
 				490A3A5F285850D0006E1568 /* Main.swift in Sources */,
+				7C553B5A285E4DA100BB1F0A /* GoalList.swift in Sources */,
 				7C48C6E52851E495005A3AA0 /* UserDataKeychain.swift in Sources */,
 				7C48C6E82851E4EF005A3AA0 /* Keychain.swift in Sources */,
 				7CE3F0712850B9E3009C9524 /* K.swift in Sources */,
@@ -379,7 +403,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Alze/Preview Content\"";
-				DEVELOPMENT_TEAM = 4NQ864VCNU;
+				DEVELOPMENT_TEAM = FQAGJGNAQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -393,7 +417,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alzeeeee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -412,7 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Alze/Preview Content\"";
-				DEVELOPMENT_TEAM = 4NQ864VCNU;
+				DEVELOPMENT_TEAM = FQAGJGNAQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -426,7 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alzeeeee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -12,7 +12,7 @@ struct CognitionDescView: View {
     @State var solvedBy:String = ""
     @State var notes:String = ""
     @State var desc:String = "Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. "
-    
+    var goalData : GoalModel
     var body: some View {
         ScrollView(.vertical){
             HStack{
@@ -20,14 +20,15 @@ struct CognitionDescView: View {
                     //Title
                     Group{
                         VStack(alignment:.leading, spacing: 8){
-                            Text("Walk For 15 Minutes")
+                            Text(goalData.detail)
                                 .font(.title)
                                 .fontWeight(.medium)
                                 .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: .leading)
                             
-                            Text("Cognition")
+                            Text(goalData.getCategory(status: goalData.category))
                                 .font(.system(size: 16))
-                                .frame(width: 85, height: 30)
+                                .frame(height: 30)
+                                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                                 .foregroundColor(.white)
                                 .background(K.CustomColor.color7.cornerRadius(8))
                         }
@@ -41,7 +42,7 @@ struct CognitionDescView: View {
                                 .fontWeight(.medium)
                                 .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 25, idealHeight: 25, maxHeight: 25, alignment: .leading)
                             
-                            Text(desc)
+                            Text(goalData.description)
                                 .fixedSize(horizontal: false, vertical: true)
                         }
                     }
@@ -120,6 +121,6 @@ struct CognitionDescView: View {
 
 struct CognitionDescView_Previews: PreviewProvider {
     static var previews: some View {
-        CognitionDescView()
+        CognitionDescView(goalData: GoalModel(id: UUID(), image: "", category: 0, detail: "", description: "", status: 0, repeatArray: [0]))
     }
 }
