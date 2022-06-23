@@ -65,10 +65,11 @@ struct GoalList: View {
                     VStack{
                         if listData.count >  0{
                             ForEach(listData) { data in
-                                NavigationLink(destination: CognitionDescView(goalData: data)) {
-                                    ListCell(listModel: data)
+                                ListCell(listModel: data)
 
-                                }
+//                                NavigationLink(destination: CognitionDescView(goalData: data)) {
+//
+//                                }
                                     
                             }
                         }else{
