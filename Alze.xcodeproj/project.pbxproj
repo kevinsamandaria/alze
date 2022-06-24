@@ -30,8 +30,8 @@
 		E229A69328571CA700EBA775 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E229A69228571CA700EBA775 /* DummyData.swift */; };
 		E239E3E4285837CB00A0C6C1 /* CustomToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */; };
 		E239E3E6285888AE00A0C6C1 /* AddReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */; };
-		E258D97E2859D1A500064842 /* PillModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E258D97D2859D1A500064842 /* PillModalView.swift */; };
 		E25A4B7F285B1BC500F45B84 /* DescView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25A4B7E285B1BC400F45B84 /* DescView.swift */; };
+		E2CCA2C12864720E00DD8BD9 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCA2C02864720E00DD8BD9 /* ModalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,8 +60,8 @@
 		E229A69228571CA700EBA775 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomToggle.swift; sourceTree = "<group>"; };
 		E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderView.swift; sourceTree = "<group>"; };
-		E258D97D2859D1A500064842 /* PillModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillModalView.swift; sourceTree = "<group>"; };
 		E25A4B7E285B1BC400F45B84 /* DescView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescView.swift; sourceTree = "<group>"; };
+		E2CCA2C02864720E00DD8BD9 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +108,8 @@
 				7CB199092851A67300727A27 /* Alze.entitlements */,
 				7C65169F284E60C20072348A /* AlzeApp.swift */,
 				E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */,
+				E2CCA2C02864720E00DD8BD9 /* ModalView.swift */,
 				E25A4B7E285B1BC400F45B84 /* DescView.swift */,
-				E258D97D2859D1A500064842 /* PillModalView.swift */,
 				E226BCA32851FCB000A8ADAF /* ReminderView.swift */,
 				E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */,
 				490A3A6428597E06006E1568 /* AddGoal.swift */,
@@ -224,7 +224,6 @@
 				7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */,
 				490A3A61285853A3006E1568 /* Home.swift in Sources */,
 				7CE3F06F2850832E009C9524 /* Login.swift in Sources */,
-				E258D97E2859D1A500064842 /* PillModalView.swift in Sources */,
 				7C48C6EC2851F2FA005A3AA0 /* EnvironmentWindowKey.swift in Sources */,
 				7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */,
 				490A3A6528597E06006E1568 /* AddGoal.swift in Sources */,
@@ -236,6 +235,7 @@
 				7C6516A2284E60C20072348A /* ContentView.swift in Sources */,
 				7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */,
 				E229A69328571CA700EBA775 /* DummyData.swift in Sources */,
+				E2CCA2C12864720E00DD8BD9 /* ModalView.swift in Sources */,
 				7C48C6E32851E175005A3AA0 /* UserData.swift in Sources */,
 				7CB1990B2851A7A600727A27 /* SignInWithApple.swift in Sources */,
 				E25A4B7F285B1BC500F45B84 /* DescView.swift in Sources */,
