@@ -11,12 +11,14 @@ struct AddReminderView: View {
     @State var medicineName: String = ""
     @State var beforeAfterEat: String = ""
     @State var onTap: Bool = true
-    @State var showModal: Bool = false
+    @State var pillModal: Bool = false
     @State var notifToggle: Bool = false
+    @State var pickTime: Bool = false
+    @State var time: Date = Date()
     @State var types: String = "Pill"
     
     var body: some View {
-        HStack{
+        ZStack{
             VStack(spacing:24){
                 //Medicine Name
                 Group{
@@ -34,7 +36,7 @@ struct AddReminderView: View {
                                     .stroke(K.CustomColor.color1)
                             )
                     }
-                }
+                }.padding()
                 
                 
                 //How to use
@@ -71,7 +73,7 @@ struct AddReminderView: View {
                             )
                         }
                     }
-                }
+                }.padding()
                 
                 
                 //type and time
@@ -84,7 +86,7 @@ struct AddReminderView: View {
                                 .fontWeight(.medium)
                             ZStack{
                                 Button {
-                                    showModal = true
+                                    pillModal = true
                                 } label: {
                                     Image(systemName: "pills")
                                         .resizable()
@@ -102,9 +104,6 @@ struct AddReminderView: View {
                                 }
                                 .frame(minWidth: 167, idealWidth: 167, maxWidth: .infinity, minHeight: 68, idealHeight: 68, maxHeight: 68)
                                 .overlay(RoundedRectangle(cornerRadius: 16).stroke(K.CustomColor.color1))
-                                .sheet(isPresented: $showModal) {
-                                    
-                                }
                             }
                         }
                         
@@ -115,7 +114,7 @@ struct AddReminderView: View {
                                 .fontWeight(.medium)
                             
                             Button {
-                                showModal = true
+                                pickTime.toggle()
                             } label: {
                                 Image(systemName: "clock")
                                     .resizable()
@@ -136,23 +135,13 @@ struct AddReminderView: View {
                             .overlay(RoundedRectangle(cornerRadius: 16).stroke(K.CustomColor.color1))
                         }
                     }
-                }
-                
-                //Notification
-                Group{
-                    Toggle("Notification", isOn: $notifToggle)
-                        .font(.title2)
-
-                    if notifToggle{
-                        Text("hi")
-                    }
-                }
+                }.padding()
                 
                 //calendar
                 Group{
                     Text("This is Calendar")
-                        
-                }
+                    
+                }.padding()
                 Spacer()
                 Group{
                     Button {
@@ -163,15 +152,20 @@ struct AddReminderView: View {
                     .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 51, idealHeight: 51, maxHeight: 51)
                     .foregroundColor(.white)
                     .background(K.CustomColor.color1.cornerRadius(25))
-
-                }
+                    
+                }.padding()
             }
-        }.padding()
+            PillModalView(pillModal: $pillModal)
+            TimeModalView(timeModal: $pickTime)
+        }
     }
 }
 
+
+
 struct AddReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReminderView()
+                AddReminderView()
+//        timePickerView()
     }
 }
