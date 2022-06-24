@@ -25,7 +25,7 @@ struct CardReminder: View {
                 .scaledToFit()
                 .foregroundColor(.indigo.opacity(0.5))
                 .frame(width: 80, height: 64)
-
+            
             VStack(alignment: .leading, spacing: 12) {
                 Text("\(reminder.label)").font(.title2).fontWeight(.medium)
                 
@@ -76,7 +76,7 @@ struct CardGoal: View {
                     .fontWeight(.regular)
                     .padding(.horizontal, 12)
                     .padding(.top, 4)
-            
+                
                 Spacer()
                 
                 Text("\(goal.progress)%")
@@ -138,56 +138,65 @@ struct Home: View {
         Reminder(label: "Donepozil", image: "star.fill", time: "13.00", detail: "After Eat"),
         Reminder(label: "Donepozil", image: "star.fill", time: "13.00", detail: "After Eat")
     ]
-            
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            
-            ZStack(alignment: .leading) {
-                Text("Good Morning, Alze")
-                    .font(.title)
-                    .fontWeight(.semibold)
+        NavigationView{
+            VStack(alignment: .leading, spacing: 0) {
                 
-                HStack {
-                    Spacer()
-                    Button(action: {
-
-                    }) {
-                        Image(systemName: "bell.fill")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .foregroundColor(.indigo.opacity(0.8))
+                ZStack(alignment: .leading) {
+                    Text("Good Morning, Alze")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            
+                        }) {
+                            Image(systemName: "bell.fill")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .foregroundColor(.indigo.opacity(0.8))
+                        }
                     }
                 }
-            }
-            .padding()
+                .padding()
+                
+                Text("Today's Reminder")
+                    .font(.headline)
+                    .fontWeight(.regular)
+                    .padding(.horizontal)
+                
+                ScrollView(.horizontal) {
+                    HStack(spacing: 16) {
+                        ForEach(reminders) { reminder in
+                            NavigationLink(destination: ReminderView()) {
+                                CardReminder(reminder: reminder)
 
-            Text("Today's Reminder")
-                .font(.headline)
-                .fontWeight(.regular)
-                .padding(.horizontal)
-
-            ScrollView(.horizontal) {
-                HStack(spacing: 16) {
-                    ForEach(reminders) { reminder in
-                        CardReminder(reminder: reminder)
-                    }
-                }.padding(16)
-            }
-            
-            Text("Today's Goal")
-                .font(.headline)
-                .fontWeight(.regular)
-                .padding(.horizontal)
-                .padding(.top, 32)
-
-            LazyVGrid(columns: columns, spacing: 8) {
-                ForEach(goals) { row in
-                    CardGoal(goal: row)
+                            }
+                        }
+                    }.padding(16)
                 }
-            }.padding(.vertical).padding(.horizontal)
-            
-            Spacer()
-        }
+                
+                Text("Today's Goal")
+                    .font(.headline)
+                    .fontWeight(.regular)
+                    .padding(.horizontal)
+                    .padding(.top, 32)
+                
+                LazyVGrid(columns: columns, spacing: 8) {
+                    ForEach(goals) { row in
+                        NavigationLink(destination: GoalList(goalDetail: row)) {
+                            CardGoal(goal: row)
+
+                        }
+                    }
+                }.padding(.vertical).padding(.horizontal)
+                
+                Spacer()
+            }.navigationBarTitleDisplayMode(.inline)
+        }.accentColor(.black)
+
     }
 }
 

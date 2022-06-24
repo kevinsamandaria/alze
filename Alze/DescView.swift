@@ -13,21 +13,24 @@ struct MobilityDescView: View {
     @State var notes:String = ""
     @State var desc:String = "Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. "
     
+    var descGoal : GoalModel
     var body: some View {
         ScrollView(.vertical){
             HStack{
                 VStack(spacing: 24){
                     //Title
+                    
                     Group{
                         VStack(alignment:.leading, spacing: 8){
-                            Text("Walk For 15 Minutes")
+                            Text("\(descGoal.detail)")
                                 .font(.title)
                                 .fontWeight(.medium)
                                 .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: .leading)
                             
-                            Text("*Type")
+                            Text("\(descGoal.getCategory(status: descGoal.category))")
+                                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                                 .font(.system(size: 16))
-                                .frame(width: 75, height: 30)
+                                .frame(height: 30)
                                 .foregroundColor(.white)
                                 .background(K.CustomColor.color5.cornerRadius(8))
                         }
@@ -35,16 +38,21 @@ struct MobilityDescView: View {
                     
                     //Description
                     Group{
-    //                    GeometryReader { proxy in
+                        //                    GeometryReader { proxy in
+                        if descGoal.description.count > 0{
                             VStack(){
                                 Text("Description")
                                     .font(.title3)
                                     .fontWeight(.medium)
                                     .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 25, idealHeight: 25, maxHeight: 25, alignment: .leading)
-
-                                Text(desc)
+                                
+                                Text(descGoal.description)
                                     .fixedSize(horizontal: false, vertical: true)
+                            }
+                        }else{
+                            
                         }
+                        
                     }
                     
                     //Solved By
@@ -121,6 +129,6 @@ struct MobilityDescView: View {
 
 struct MobilityDescView_Previews: PreviewProvider {
     static var previews: some View {
-        MobilityDescView()
+        MobilityDescView(descGoal: GoalModel(id: UUID(), image: "", category: 0, detail: "", description: "", status: 0, repeatArray: []))
     }
 }

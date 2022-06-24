@@ -25,6 +25,7 @@
 		7C6516AC284E60C50072348A /* Alze.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C6516AA284E60C50072348A /* Alze.xcdatamodeld */; };
 		7C729301285EE5F5004EAE6E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C729300285EE5F5004EAE6E /* Utils.swift */; };
 		7C812744285F9F06008A5A01 /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C812743285F9F06008A5A01 /* GoalModel.swift */; };
+		7CA05B702864503D00BC06CB /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA05B6F2864503D00BC06CB /* NetworkManager.swift */; };
 		7CB1990B2851A7A600727A27 /* SignInWithApple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1990A2851A7A600727A27 /* SignInWithApple.swift */; };
 		7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */; };
 		7CE3F06F2850832E009C9524 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3F06E2850832E009C9524 /* Login.swift */; };
@@ -58,6 +59,7 @@
 		7C6516AB284E60C50072348A /* Alze.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Alze.xcdatamodel; sourceTree = "<group>"; };
 		7C729300285EE5F5004EAE6E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7C812743285F9F06008A5A01 /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
+		7CA05B6F2864503D00BC06CB /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7CB199092851A67300727A27 /* Alze.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Alze.entitlements; sourceTree = "<group>"; };
 		7CB1990A2851A7A600727A27 /* SignInWithApple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithApple.swift; sourceTree = "<group>"; };
 		7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleDelegates.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		7C65169E284E60C20072348A /* Alze */ = {
 			isa = PBXGroup;
 			children = (
+				7CA05B6C2864501A00BC06CB /* Network */,
 				E229A69128571C8800EBA775 /* Dummy Data */,
 				7CB199092851A67300727A27 /* Alze.entitlements */,
 				7C65169F284E60C20072348A /* AlzeApp.swift */,
@@ -160,6 +163,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		7CA05B6C2864501A00BC06CB /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				7CA05B6F2864503D00BC06CB /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		E229A69128571C8800EBA775 /* Dummy Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +195,8 @@
 			dependencies = (
 			);
 			name = Alze;
+			packageProductDependencies = (
+			);
 			productName = Alze;
 			productReference = 7C65169C284E60C20072348A /* Alze.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +225,8 @@
 				Base,
 			);
 			mainGroup = 7C651693284E60C20072348A;
+			packageReferences = (
+			);
 			productRefGroup = 7C65169D284E60C20072348A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -245,6 +260,7 @@
 				7CB1990D2851AE5A00727A27 /* SignInWithAppleDelegates.swift in Sources */,
 				490A3A61285853A3006E1568 /* Home.swift in Sources */,
 				7CF755B52860F32F00E09C15 /* GoalViewModel.swift in Sources */,
+				7CA05B702864503D00BC06CB /* NetworkManager.swift in Sources */,
 				7CE3F06F2850832E009C9524 /* Login.swift in Sources */,
 				7C48C6EC2851F2FA005A3AA0 /* EnvironmentWindowKey.swift in Sources */,
 				7C812744285F9F06008A5A01 /* GoalModel.swift in Sources */,
@@ -395,7 +411,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Alze/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FQAGJGNAQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -409,7 +425,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alzeeeee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -428,7 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Alze/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = FQAGJGNAQ8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -442,7 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alzeeeee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
