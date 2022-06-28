@@ -13,19 +13,19 @@ struct MobilityDescView: View {
     @State var notes:String = ""
     @State var desc:String = "Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. Walking exercise regularly can improve physical fitness and reduce the risk of various life-threatening diseases. "
     
-    var descGoal: GoalNetworkModelField
+    var descGoal: GoalModel
     
     var body: some View {
         ScrollView(.vertical){
             HStack{
                 VStack(spacing: 24){
                         VStack(alignment:.leading, spacing: 8){
-                            Text("\(descGoal.description!)")
+                            Text("\(descGoal.detail)")
                                 .font(.title)
                                 .fontWeight(.medium)
                                 .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: .leading)
                             
-                            Text("\(descGoal.getCategory(categoryId: descGoal.categoryId!))")
+                            Text("\(descGoal.getCategory(status: descGoal.category))")
                                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                                 .font(.system(size: 16))
                                 .frame(height: 30)
@@ -34,17 +34,18 @@ struct MobilityDescView: View {
                         }
             
                     Group{
-//                        if let goalDesc =  descGoal.description{
-                            VStack(){
+                        if let goalDesc =  descGoal.description{
+                            VStack(alignment: .leading){
                                 Text("Description")
                                     .font(.title3)
                                     .fontWeight(.medium)
                                     .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 25, idealHeight: 25, maxHeight: 25, alignment: .leading)
                                 
-                                Text(descGoal.description!)
+                                Text(descGoal.description)
+                                    .font(.system(size: 12))
                                     .fixedSize(horizontal: false, vertical: true)
                             }
-//                        }
+                        }
                     }
                     //Solved By
                     Group{
@@ -120,8 +121,8 @@ struct MobilityDescView: View {
 
 struct MobilityDescView_Previews: PreviewProvider {
     static var previews: some View {
-        MobilityDescView(descGoal: GoalNetworkModelField(id: 0, title: "", category: "", categoryId: 0, status: "", statusId: 0, description: "", createdDate: "", notes: "", achiveBy: "", achiveById: 0, userToken: KeychainItem.currentUserIdentifier))
+//        MobilityDescView(descGoal: GoalNetworkModelField(id: 0, title: "", category: "", categoryId: 0, status: "", statusId: 0, description: "", createdDate: "", notes: "", achiveBy: "", achiveById: 0, userToken: KeychainItem.currentUserIdentifier))
 
-//        MobilityDescView(descGoal: GoalModel(id: UUID(), image: "", category: 0, detail: "", description: "", status: 0, repeatArray: []))
+        MobilityDescView(descGoal: GoalModel(id: UUID(), image: "", category: 0, detail: "", description: "", status: 0, repeatArray: []))
     }
 }

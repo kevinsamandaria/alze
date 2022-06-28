@@ -18,22 +18,22 @@ struct GoalList: View {
     @State var currentWeek: [Date] = []
     @State var toDetail: Bool = false
     @State var selectedDate: String = ""
-//    var goalDetail : Goal
+    //    var goalDetail : Goal
     var categoryId : Int
     
     @State var listData  = [GoalNetworkModel]()
-//    [GoalModel(id: UUID(), image: "brain.head.profile", category: 2 , detail: "Remembering Recent 2", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 1, repeatArray: [1,2,3,5]),
-//     GoalModel(id: UUID(), image: "brain.head.profile", category: 2,detail: "Answering Question", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 2, repeatArray: [2,5,7]),
-//     GoalModel(id: UUID(), image: "brain.head.profile", category: 2, detail: "Reacting to Good News", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.",status: 0, repeatArray: [4,7])]
+    //    [GoalModel(id: UUID(), image: "brain.head.profile", category: 2 , detail: "Remembering Recent 2", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 1, repeatArray: [1,2,3,5]),
+    //     GoalModel(id: UUID(), image: "brain.head.profile", category: 2,detail: "Answering Question", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 2, repeatArray: [2,5,7]),
+    //     GoalModel(id: UUID(), image: "brain.head.profile", category: 2, detail: "Reacting to Good News", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.",status: 0, repeatArray: [4,7])]
     var body: some View {
         
         VStack(alignment: .center){
             
             HStack{
-                Text("Today's \(goalDetail.label) Goals")
+                Text("Today's \(goalModel.getCategory(status: categoryId)) Goals")
                     .font(.system(size: 24))
                 Spacer()
-                NavigationLink(destination: AddGoal()) {
+                NavigationLink(destination: AddGoal(selectDate: selectedDate, categoryId: categoryId)) {
                     Image(systemName: "plus")
                         .frame(width: 25, height: 25)
                         .foregroundColor(.black)
@@ -55,23 +55,26 @@ struct GoalList: View {
                                 
                             }.onTapGesture {
                                 goalModel.currentDay = day
+                                selectedDate = goalModel.extractWeekDate(date: day, format: "M/dd/yyyy")
+
+                                getListData()
                             }
                         }.foregroundColor(.black)
                             .frame(width: 45, height: 90)
-                    
-                    }.foregroundColor(.black)
-                        .frame(width: 45, height: 90)
+                        
+                    }
                     
                 }
                 
-//                ScrollView(.vertical){
-                    VStack{
-                        if listData.count >  0{
+                //                ScrollView(.vertical){
+                VStack{
+                    if listData.count >  0{
+                        List{
                             ForEach(listData, id: \.id) { data in
-                                ListCell(listModel: data.fields)
-
-                                NavigationLink(destination: MobilityDescView(descGoal: data)) {
-                                    ListCell(listModel: data)
+                                
+                                let dataGoal = GoalModel(category: data.fields.categoryId ?? 0, detail: data.fields.title ?? "", description: data.fields.description ?? "", status: data.fields.statusId ?? 0, repeatArray: [0])
+                                NavigationLink(destination: MobilityDescView(descGoal: dataGoal)) {
+                                    ListCell(listModel: data.fields)
                                 }
                             }
                             .onDelete(perform: self.deleteRow)
@@ -79,17 +82,17 @@ struct GoalList: View {
                     } else {
                         EmptyView().frame(width: Utils.width * 0.9, height: .signalingNaN)
                     }
-//                }
+                }
                 Spacer()
             }.padding(.horizontal, 10)
-                    .onAppear{
-                        selectedDate = goalModel.extractWeekDate(date: Date(), format: "M/dd/yyyy")
-                    }
-            }.background(Color("Color-4"))
-                .navigationBarTitleDisplayMode(.inline)
                 .onAppear{
-                   getListData()
+                    selectedDate = goalModel.extractWeekDate(date: Date(), format: "M/dd/yyyy")
                 }
+        }.background(Color("Color-4"))
+            .navigationBarTitleDisplayMode(.inline)
+            .onAppear{
+                getListData()
+            }
     }
     
     private func deleteRow(at indexSet: IndexSet) {
@@ -118,6 +121,7 @@ struct ListCell: View{
                     .font(.system(size: 16))
                     .font(.system(size: 16))
                 Spacer()
+            }
             Text("\(listModel.title!)")
                 .padding(.leading)
                 .font(.system(size: 18))
@@ -126,6 +130,7 @@ struct ListCell: View{
         .padding(.vertical)
         .padding(.leading, 6)
         .cornerRadius(16)
+        
     }
 }
 
@@ -139,9 +144,10 @@ struct EmptyListView: View{
 }
 
 struct ToDoList_Previews: PreviewProvider {
+    static var previews: some View{
         GoalList(categoryId: 0)
-//        GoalList(goalDetail: Goal(id: UUID(), label: "", image: "", value: 0, valueTotal: 0, progress: 0))
-//        GoalList(goalDetail: Goal(id: UUID(), label: "", image: "", value: 0, valueTotal: 0, progress: 0))
+        //        GoalList(goalDetail: Goal(id: UUID(), label: "", image: "", value: 0, valueTotal: 0, progress: 0))
+        //        GoalList(goalDetail: Goal(id: UUID(), label: "", image: "", value: 0, valueTotal: 0, progress: 0))
     }
 }
 

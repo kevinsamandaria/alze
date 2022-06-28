@@ -214,7 +214,7 @@ struct Home: View {
                 LazyVGrid(columns: columns, spacing: 8) {
 
                     ForEach(goals.indices) { row in
-                        NavigationLink(destination: GoalList(goalDetail: goals[row])) {
+                        NavigationLink(destination: GoalList(categoryId: row)) {
                             CardGoal(goal: goals[row], goalUser: goalsUser[row])
                             
                         }
