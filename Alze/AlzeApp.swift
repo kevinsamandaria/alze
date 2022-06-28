@@ -94,10 +94,11 @@ struct AlzeApp: App {
 
         WindowGroup {
             
-            ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+            
 
             //            if appManager.isAuthorized{
-//                Home().environmentObject(appManager)
+                Home()
 ////                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //            }else{
 //                Login().environmentObject(appManager)
