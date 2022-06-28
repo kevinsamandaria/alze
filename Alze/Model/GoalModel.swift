@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GoalModel: Identifiable{
+struct GoalModel: Identifiable, Hashable {
     var id = UUID()
     var image: String
     var category: Int

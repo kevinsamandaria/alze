@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tablet.svg",
+      "filename" : "ic-mobility-1.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tablet-1.svg",
+      "filename" : "ic-mobility.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tablet-2.svg",
+      "filename" : "ic-mobility-2.pdf",
       "idiom" : "universal",
       "scale" : "3x"
     }

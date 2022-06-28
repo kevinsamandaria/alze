@@ -11,7 +11,9 @@ struct AddGoal: View {
     
     @State var goalTitle = ""
     @State var description = ""
-    @State var repeatToggle = false
+    
+    @State var repeats: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    @State var repeatDay: [Bool] = [false, false, false, false, false, false, false]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -76,15 +78,29 @@ struct AddGoal: View {
                             .padding(.vertical, 20)
                     }
                 }
-                
             }
             
-            Toggle(isOn: $repeatToggle, label: {
-                Text("Repeat")
-            })
-            .tint(K.CustomColor.color1)
-            .padding(.horizontal, 6)
-            .padding(.vertical)
+            Text("Repeat").font(.system(size: 16, weight: .medium))
+                .padding(.top, 8)
+            
+            HStack(spacing: 10){
+                ForEach(1..<8, id: \.self){ i in
+                    Button {
+                        repeatDay[i-1] = !repeatDay[i-1]
+                    } label: {
+                        Text(repeats[i-1])
+                            .font(.caption)
+                    }
+                    .frame(minWidth: 42, idealWidth: 42, minHeight: 42, idealHeight: 42, maxHeight: 42)
+                    .foregroundColor(.black)
+                    .background(repeatDay[i-1] ? K.CustomColor.color2.cornerRadius(25) : Color.clear.cornerRadius(25))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(K.CustomColor.color1)
+                    )
+                }
+                
+            }
             
             Spacer()
             

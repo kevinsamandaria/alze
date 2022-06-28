@@ -24,7 +24,7 @@ struct MedicineList {
     
     static let medicine = [
         dummyData(image: "tablet", medecineName: "Donepezil", time: "13.00", afterBeforeEat: "After Eat"),
-        dummyData(image: "Pill", medecineName: "Rivastigmin", time: "15.00", afterBeforeEat: "After Eat"),
-        dummyData(image: "Pill", medecineName: "Galantamin", time: "20.00", afterBeforeEat: "Before Eat")
+        dummyData(image: "pill", medecineName: "Rivastigmin", time: "15.00", afterBeforeEat: "After Eat"),
+        dummyData(image: "pill", medecineName: "Galantamin", time: "20.00", afterBeforeEat: "Before Eat")
     ]
 }

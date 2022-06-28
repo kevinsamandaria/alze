@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GoalList: View {
+    @Environment(\.defaultMinListRowHeight) var minRowHeight
     @State var imageCategory = "brain.head.profile"
     @State var titleCategory = "Cognition - Independent"
     @State var toDo = "Answering Question"
@@ -16,14 +17,15 @@ struct GoalList: View {
     @StateObject var goalModel = GoalViewModel()
     @State var currentWeek: [Date] = []
     @State var toDetail: Bool = false
-
+    
     var goalDetail : Goal
     
-    var listData: [GoalModel] = //[]
+    @State private var listData: [GoalModel] = //[]
     [GoalModel(id: UUID(), image: "brain.head.profile", category: 2 , detail: "Remembering Recent 2", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 1, repeatArray: [1,2,3,5]),
      GoalModel(id: UUID(), image: "brain.head.profile", category: 2,detail: "Answering Question", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 2, repeatArray: [2,5,7]),
      GoalModel(id: UUID(), image: "brain.head.profile", category: 2, detail: "Reacting to Good News", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.",status: 0, repeatArray: [4,7])]
     var body: some View {
+
 //        NavigationView{
         
            
@@ -55,33 +57,50 @@ struct GoalList: View {
                                     goalModel.currentDay = day
                                 }
                             }.foregroundColor(.black)
-                                .frame(width: 45, height: 90)
-                            
+                                .frame(width: 45, height: 90)                            
+                            ZStack{
+                                Circle()
+                                    .fill(goalModel.isToday(date: day) ? Color("Color-2") : .white)
+                                    .frame(width: 43, height: 43)
+                                Text(goalModel.extractWeekDate(date: day, format: "d"))
                                 
-                        }
+                            }.onTapGesture {
+                                goalModel.currentDay = day
+                            }
+                        }.foregroundColor(.black)
+                            .frame(width: 45, height: 90)
+                        
+                        
                     }
-//                }.padding(.horizontal, 10)
+                }
+                //                }.padding(.horizontal, 10)
                 
-//                ScrollView(.vertical){
-                    VStack{
-                        if listData.count >  0{
-                            ForEach(listData) { data in
+                //                ScrollView(.vertical){
+                VStack {
+                    if listData.count > 0 {
+                        List {
+                            ForEach(listData, id: \.self) { data in
                                 NavigationLink(destination: MobilityDescView(descGoal: data)) {
                                     ListCell(listModel: data)
                                 }
                             }
-                        }else{
-                            EmptyView().frame(width: Utils.width * 0.9, height: .signalingNaN)
-                        }
-                        
+                            .onDelete(perform: self.deleteRow)
+                        }.frame(minHeight: minRowHeight * 15)
+                    } else {
+                        EmptyView().frame(width: Utils.width * 0.9, height: .signalingNaN)
                     }
-//                }
-                Spacer()
-            }.padding(.horizontal, 10)
-            }.background(Color("Color-4"))
-                .navigationBarTitleDisplayMode(.inline)
-//        }.accentColor(.black)
-            
+                    
+                }
+                //                }
+            }
+        }.background(Color("Color-4"))
+            .navigationBarTitleDisplayMode(.inline)
+        //        }.accentColor(.black)
+        
+    }
+    
+    private func deleteRow(at indexSet: IndexSet) {
+        listData.remove(atOffsets: indexSet)
     }
 }
 
@@ -96,16 +115,13 @@ struct ListCell: View{
                     .tint(.pink)
                     .frame(width: 25, height: 21)
                 Text("\(listModel.getCategory(status: listModel.category)) - \(listModel.getStatus(status: listModel.status))")
-                    .font(.system(size: 16))
+                    .font(.system(size: 14))
                 Spacer()
             }
             Text("\(listModel.detail)")
-                .padding(.leading)
                 .font(.system(size: 21))
         }
         .padding()
-        .frame(width: Utils.width - 40)
-        .background(.white)
         .cornerRadius(16)
     }
 }
@@ -119,7 +135,7 @@ struct EmptyListView: View{
 }
 struct ToDoList_Previews: PreviewProvider {
     static var previews: some View {
-        GoalList(goalDetail: Goal(id: UUID(), label: "", image: "", value: 0, valueTotal: 0, progress: 0))
+        GoalList(goalDetail: Goal(id: UUID(), label: "", image: "", color: K.CustomColor.color1))
     }
 }
 
