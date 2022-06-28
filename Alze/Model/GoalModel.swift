@@ -9,7 +9,7 @@ import Foundation
 
 struct GoalModel: Identifiable{
     var id = UUID()
-    var image: String
+    var image: String?
     var category: Int
     var detail: String
     var description: String

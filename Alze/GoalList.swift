@@ -68,11 +68,10 @@ struct GoalList: View {
                     VStack{
                         if listData.count >  0{
                             ForEach(listData, id: \.id) { data in
-                                ListCell(listModel: data.fields)
-
-//                                NavigationLink(destination: MobilityDescView(descGoal: data)) {
-//                                    ListCell(listModel: data)
-//                                }
+                                let dataGoal = GoalModel(category: data.fields.categoryId ?? 0, detail: data.fields.title ?? "", description: data.fields.description ?? "", status: data.fields.statusId ?? 0, repeatArray: [0])
+                                NavigationLink(destination: MobilityDescView(descGoal: dataGoal)) {
+                                    ListCell(listModel: data.fields)
+                                }
                             }
                         }else{
                             EmptyView().frame(width: Utils.width * 0.9, height: .signalingNaN)
