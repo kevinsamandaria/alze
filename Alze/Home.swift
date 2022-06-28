@@ -178,7 +178,7 @@ struct Home: View {
                     HStack {
                         Spacer()
                         Button(action: {
-//                            KeychainItem.deleteUserIdentifierFromKeychain()
+                            KeychainItem.deleteUserIdentifierFromKeychain()
                         }) {
                             Image(systemName: "bell.fill")
                                 .resizable()
