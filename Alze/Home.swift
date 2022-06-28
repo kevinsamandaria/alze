@@ -178,7 +178,7 @@ struct Home: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            KeychainItem.deleteUserIdentifierFromKeychain()
+//                            KeychainItem.deleteUserIdentifierFromKeychain()
                         }) {
                             Image(systemName: "bell.fill")
                                 .resizable()
@@ -227,6 +227,7 @@ struct Home: View {
         }.accentColor(.black)
             .onAppear{
                 let token = "Bearer \(KeychainItem.currentUserIdentifier)"
+                print(token)
                 NetworkManager.shared.getUserData(with: .user, endPoint: UserAPI.getUser(token)) { userData in
                     DispatchQueue.main.async {
                         print("Tess: \(userData)")

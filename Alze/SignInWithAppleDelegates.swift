@@ -77,6 +77,7 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
         }
         do{
             try KeychainItem(service: "com.mc2Afternoon3.Alze.details", account: "userIdentifier").saveItem(credential.user)
+            print(KeychainItem.currentUserIdentifier)
             self.signInSucceeded(true)
 
         } catch{
@@ -89,6 +90,14 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
     }
     
     private func signInWithExitingAccount(credential: ASAuthorizationAppleIDCredential){
+        do{
+            try KeychainItem(service: "com.mc2Afternoon3.Alze.details", account: "userIdentifier").saveItem(credential.user)
+            print(KeychainItem.currentUserIdentifier)
+            self.signInSucceeded(true)
+
+        } catch{
+            self.signInSucceeded(false)
+        }
         self.signInSucceeded(true)
     }
     
