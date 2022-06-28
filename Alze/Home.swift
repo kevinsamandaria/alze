@@ -159,8 +159,8 @@ struct Home: View {
     ]
     
     var reminders: [Reminder] = [
-        Reminder(label: "Donepozil", image: "pill", time: "13.00", detail: "After Eat"),
-        Reminder(label: "Donepozil", image: "pill", time: "13.00", detail: "After Eat"),
+        Reminder(label: "Donepozil", image: "Pill", time: "13.00", detail: "After Eat"),
+        Reminder(label: "Donepozil", image: "Pill", time: "13.00", detail: "After Eat"),
         Reminder(label: "Donepozil", image: "tablet", time: "13.00", detail: "After Eat"),
         Reminder(label: "Donepozil", image: "tablet", time: "13.00", detail: "After Eat"),
         Reminder(label: "Donepozil", image: "tablet", time: "13.00", detail: "After Eat")
@@ -178,7 +178,7 @@ struct Home: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            
+                            KeychainItem.deleteUserIdentifierFromKeychain()
                         }) {
                             Image(systemName: "bell.fill")
                                 .resizable()
