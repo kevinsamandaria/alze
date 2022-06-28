@@ -218,6 +218,7 @@ struct Home: View {
                             CardGoal(goal: goals[row], goalUser: goalsUser[row])
                             
                         }
+
                     }
                 }.padding(.vertical).padding(.horizontal)
                 
@@ -226,7 +227,7 @@ struct Home: View {
         }.accentColor(.black)
             .onAppear{
                 let token = "Bearer \(KeychainItem.currentUserIdentifier)"
-                NetworkManager.shared.callApi(with: .user, endPoint: UserAPI.getUser(token)) { userData in
+                NetworkManager.shared.getUserData(with: .user, endPoint: UserAPI.getUser(token)) { userData in
                     DispatchQueue.main.async {
                         print("Tess: \(userData)")
                     }

@@ -135,6 +135,15 @@ struct KeychainItem{
         }
     }
     
+    static var getToken: String {
+        do {
+            let storedIdentifier = try KeychainItem(service: "com.mc2Afternoon3.Alze.details", account: "userIdentifier").readItem()
+            
+            return "Bearer \(storedIdentifier)"
+        } catch {
+            return ""
+        }
+    }
     static func deleteUserIdentifierFromKeychain() {
         do {
             try KeychainItem(service: "com.mc2Afternoon3.Alze.details", account: "userIdentifier").deleteItem()

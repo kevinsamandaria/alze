@@ -11,6 +11,7 @@
 		490A3A61285853A3006E1568 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A60285853A3006E1568 /* Home.swift */; };
 		490A3A6528597E06006E1568 /* AddGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A6428597E06006E1568 /* AddGoal.swift */; };
 		7C2F792D2855CBF50026679E /* SceneDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2F792C2855CBF50026679E /* SceneDelegates.swift */; };
+		7C442AE1286AE8A80001B4CF /* GoalEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C442AE0286AE8A80001B4CF /* GoalEndPoint.swift */; };
 		7C48C6E32851E175005A3AA0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E22851E175005A3AA0 /* UserData.swift */; };
 		7C48C6E52851E495005A3AA0 /* UserDataKeychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */; };
 		7C48C6E82851E4EF005A3AA0 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E72851E4EF005A3AA0 /* Keychain.swift */; };
@@ -56,6 +57,7 @@
 		490A3A60285853A3006E1568 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		490A3A6428597E06006E1568 /* AddGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoal.swift; sourceTree = "<group>"; };
 		7C2F792C2855CBF50026679E /* SceneDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegates.swift; sourceTree = "<group>"; };
+		7C442AE0286AE8A80001B4CF /* GoalEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalEndPoint.swift; sourceTree = "<group>"; };
 		7C48C6E22851E175005A3AA0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		7C48C6E42851E495005A3AA0 /* UserDataKeychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataKeychain.swift; sourceTree = "<group>"; };
 		7C48C6E72851E4EF005A3AA0 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
@@ -146,10 +148,10 @@
 				7C6516A1284E60C20072348A /* ContentView.swift */,
 				E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */,
 				E2CCA2C02864720E00DD8BD9 /* ModalView.swift */,
-				E25A4B7E285B1BC400F45B84 /* DescView.swift */,
 				E226BCA32851FCB000A8ADAF /* ReminderView.swift */,
 				E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */,
 				490A3A6428597E06006E1568 /* AddGoal.swift */,
+				E25A4B7E285B1BC400F45B84 /* DescView.swift */,
 				7C553B59285E4DA100BB1F0A /* GoalList.swift */,
 				7CE3F06E2850832E009C9524 /* Login.swift */,
 				490A3A60285853A3006E1568 /* Home.swift */,
@@ -211,6 +213,7 @@
 				7CB5E12728680D1C0038CF9D /* GoalNetworkModel.swift */,
 				7CB5E129286813C50038CF9D /* ReminderNetworkModel.swift */,
 				7CB5E12B2868214D0038CF9D /* UserEndPoint.swift */,
+				7C442AE0286AE8A80001B4CF /* GoalEndPoint.swift */,
 			);
 			path = "Network model";
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				7CB5E12C2868214D0038CF9D /* UserEndPoint.swift in Sources */,
 				7CB5E12E286872CB0038CF9D /* NetworkService.swift in Sources */,
 				E226BCA42851FCB000A8ADAF /* ReminderView.swift in Sources */,
+				7C442AE1286AE8A80001B4CF /* GoalEndPoint.swift in Sources */,
 				7C6516A2284E60C20072348A /* ContentView.swift in Sources */,
 				7CB5E12528680C4C0038CF9D /* UserNetworkModel.swift in Sources */,
 				7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */,
@@ -481,7 +485,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mc2Afternoon.AlzeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -514,7 +518,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.Alze;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mc2Afternoon.AlzeApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -11,8 +11,6 @@ typealias Parameters = [URLQueryItem]
 typealias APIResponseBlock = ((_ response: Codable?,_ isSuccess: Bool, _ error: String)->())
 //typealias HTTPBody = [String: Any]
 
-
-
 enum HTTPMethod: String{
     case get = "GET"
     case post = "POST"

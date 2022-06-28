@@ -67,10 +67,10 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
         }
         let fullName = displayName(name: name)
         let userNetwork = UserNetworkModel(fields: UserNetworkModelField(fullname: fullName, email: email, token: token))
-        NetworkManager.shared.callApi(with: .user, endPoint: UserAPI.getUser(token)) { userData in
+        NetworkManager.shared.getUserData(with: .user, endPoint: UserAPI.getUser(token)) { userData in
             print(userData)
             if userData.id == nil{
-                NetworkManager.shared.postApi(with: .user, endPoint: UserAPI.postUser, data: userNetwork) { data in
+                NetworkManager.shared.registerUser(with: .user, endPoint: UserAPI.postUser, data: userNetwork) { data in
                     print(data)
                 }
             }
