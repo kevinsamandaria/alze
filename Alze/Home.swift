@@ -188,11 +188,11 @@ struct Home: View {
                     .padding(.top, 32)
                 
                 LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(goals) { row in
-                        NavigationLink(destination: GoalList(goalDetail: row)) {
-                            CardGoal(goal: row)
-                            
+                    ForEach(goals.indices) { row in
+                        NavigationLink(destination: GoalList(categoryId: row)) {
+                            CardGoal(goal: goals[row])
                         }
+
                     }
                 }.padding(.vertical).padding(.horizontal)
                 
@@ -201,7 +201,7 @@ struct Home: View {
         }.accentColor(.black)
             .onAppear{
                 let token = "Bearer \(KeychainItem.currentUserIdentifier)"
-                NetworkManager.shared.callApi(with: .user, endPoint: UserAPI.getUser(token)) { userData in
+                NetworkManager.shared.getUserData(with: .user, endPoint: UserAPI.getUser(token)) { userData in
                     DispatchQueue.main.async {
                         print("Tess: \(userData)")
                     }

@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct AddGoal: View {
-    
+    @Environment(\.presentationMode) var presentationMode
     @State var goalTitle = ""
     @State var description = ""
     @State var repeatToggle = false
+    @State var selectDate: String
+    @StateObject var goalModel = GoalViewModel()
+
     
+    @State var categoryId: Int
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             
@@ -87,9 +91,14 @@ struct AddGoal: View {
             .padding(.vertical)
             
             Spacer()
-            
             Button(action: {
-                
+                let goalData = GoalNetworkModel(fields: GoalNetworkModelField(title: goalTitle,category: goalModel.getCategory(status: categoryId), categoryId: categoryId, status: "Not Done",statusId: 0, description: description,createdDate: selectDate, userToken: KeychainItem.getToken))
+                print(goalData)
+                NetworkManager.shared.postUserGoal(with: .goal, endPoint: GoalAPI.postGoal, data: goalData) { data in
+                    print(data)
+                }
+                self.presentationMode.wrappedValue.dismiss()
+
             }) {
                 Text("Done").font(.system(size: 16, weight: .medium))
                     .frame(maxWidth: .infinity, minHeight: 52)
@@ -104,6 +113,6 @@ struct AddGoal: View {
 
 struct AddGoal_Previews: PreviewProvider {
     static var previews: some View {
-        AddGoal()
+        AddGoal(selectDate: "", categoryId: 0)
     }
 }

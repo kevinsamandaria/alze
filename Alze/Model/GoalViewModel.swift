@@ -53,6 +53,21 @@ class GoalViewModel: ObservableObject{
         
         return calendar.isDate(currentDay, inSameDayAs: date)
     }
+    
+    func getCategory(status: Int) -> String{
+        switch status{
+        case 0:
+            return "Mobility"
+        case 1:
+            return "Cognition"
+        case 2:
+            return "Personal Care"
+        case 3:
+            return "Explore new Activity"
+        default:
+            return ""
+        }
+    }
 }
 
 extension Calendar {

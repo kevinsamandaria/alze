@@ -30,11 +30,10 @@ class NetworkManager: NSObject{
     var endPoint: EndPointType?
     var networkDelegate: NetworkDelegate?
     
-    func callApi(with Table: TableType, endPoint: EndPointType, completionHandler: @escaping(UserNetworkModelField) -> Void){
+    func getUserData(with Table: TableType, endPoint: EndPointType, completionHandler: @escaping(UserNetworkModelField) -> Void){
         self.endPoint = endPoint
         
         // Construct a URL by assigning its parts to a URLComponents value
-
         var components = URLComponents()
         components.scheme = "https"
         components.host = endPoint.baseUrl
@@ -50,21 +49,12 @@ class NetworkManager: NSObject{
         request.httpMethod = endPoint.method.rawValue
         
         
-        
         // Set the headers to request
         if let headers = endPoint.headers {
             for (key, value) in headers {
                 request.addValue(value, forHTTPHeaderField: key)
             }
         }
-        
-        
-        // Assign the request to the session as a task
-//        let task = session.dataTask(with: request)
-//
-//        // Run the task
-//        task.resume()
-        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 do{
@@ -83,7 +73,96 @@ class NetworkManager: NSObject{
 
     }
     
-    func postApi(with Table: TableType, endPoint: EndPointType, data: UserNetworkModel, completionHandler: @escaping(UserNetworkModel) -> Void){
+    func registerUser(with Table: TableType, endPoint: EndPointType, data: UserNetworkModel, completionHandler: @escaping(UserNetworkModel) -> Void){
+        self.endPoint = endPoint
+        
+        // Construct a URL by assigning its parts to a URLComponents value
+
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = endPoint.baseUrl
+        components.path = endPoint.path
+        
+        guard let url = components.url else{
+            networkDelegate?.onResponse(from: nil, result: .failure(.missingUrl))
+            return
+        }
+        // Create the request to url
+        var request = URLRequest(url: url)
+        request.httpMethod = endPoint.method.rawValue
+    
+        // Set the headers to request
+        if let headers = endPoint.headers {
+            for (key, value) in headers {
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
+        // Set httpBody
+
+        guard let httpBody = try? JSONEncoder().encode(data) else{
+            print("Invalid HttpBody")
+            return
+        }
+        request.httpBody = httpBody
+        print("request \(request)")
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                do{
+                    let finalData = try JSONDecoder().decode(UserNetworkModel.self, from: data)
+                    completionHandler(finalData)
+                }catch(let error){
+                    print("Error: \(error.localizedDescription)")
+                }
+            }else{
+                print("No Data")
+            }
+        }.resume()
+    }
+    
+    func getUserGoal(with Table: TableType, endPoint: EndPointType, completionHandler: @escaping([GoalNetworkModel]) -> Void){
+        self.endPoint = endPoint
+        
+        // Construct a URL by assigning its parts to a URLComponents value
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = endPoint.baseUrl
+        components.path = endPoint.path
+        components.queryItems = endPoint.parameters
+        
+        guard let url = components.url else{
+            networkDelegate?.onResponse(from: nil, result: .failure(.missingUrl))
+            return
+        }
+        // Create the request to url
+        var request = URLRequest(url: url)
+        request.httpMethod = endPoint.method.rawValue
+        
+        
+        // Set the headers to request
+        if let headers = endPoint.headers {
+            for (key, value) in headers {
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                do{
+                    let finalData = try JSONDecoder().decode(GoalRecords.self, from: data)
+//                    guard let userData = finalData.records else {
+//                        return
+//                    }
+                    completionHandler(finalData.records)
+                }catch(let error){
+                    print("Error: \(error.localizedDescription)")
+                }
+            }else{
+                print("No Data")
+            }
+        }.resume()
+
+    }
+    
+    func postUserGoal(with Table: TableType, endPoint: EndPointType, data: GoalNetworkModel, completionHandler: @escaping(GoalNetworkModel) -> Void){
         self.endPoint = endPoint
         
         // Construct a URL by assigning its parts to a URLComponents value
@@ -119,7 +198,7 @@ class NetworkManager: NSObject{
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 do{
-                    let finalData = try JSONDecoder().decode(UserNetworkModel.self, from: data)
+                    let finalData = try JSONDecoder().decode(GoalNetworkModel.self, from: data)
                     completionHandler(finalData)
                 }catch(let error){
                     print("Error: \(error.localizedDescription)")
@@ -128,9 +207,7 @@ class NetworkManager: NSObject{
                 print("No Data")
             }
         }.resume()
-        
     }
-    
 }
 
 extension NetworkManager: URLSessionDelegate{
