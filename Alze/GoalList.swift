@@ -25,26 +25,39 @@ struct GoalList: View {
      GoalModel(id: UUID(), image: "brain.head.profile", category: 2,detail: "Answering Question", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 2, repeatArray: [2,5,7]),
      GoalModel(id: UUID(), image: "brain.head.profile", category: 2, detail: "Reacting to Good News", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.",status: 0, repeatArray: [4,7])]
     var body: some View {
-        //        NavigationView{
+
+//        NavigationView{
         
-        VStack(alignment: .center){
-            HStack{
-                Text("Today's \(goalDetail.label) Goals")
-                    .font(.system(size: 24))
-                Spacer()
-                NavigationLink(destination: AddGoal()) {
-                    Image(systemName: "plus")
-                        .frame(width: 25, height: 25)
-                        .foregroundColor(.black)
-                }
-            }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-            //MARK: - Current Week View
-            ScrollView(.vertical, showsIndicators: false){
-                HStack(spacing: 8){
-                    ForEach(goalModel.currentWeek, id: \.self){day in
-                        VStack(spacing: 5){
-                            Text(goalModel.extractWeekDate(date: day, format: "EEE"))
-                            
+           
+            VStack(alignment: .center){
+                HStack{
+                    Text("Today's \(goalDetail.label) Goals")
+                        .font(.system(size: 24))
+                    Spacer()
+                    NavigationLink(destination: AddGoal()) {
+                        Image(systemName: "plus")
+                            .frame(width: 25, height: 25)
+                            .foregroundColor(.black)
+                    }
+                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                //MARK: - Current Week View
+                ScrollView(.vertical, showsIndicators: false){
+                    HStack(spacing: 8){
+                        ForEach(goalModel.currentWeek, id: \.self){day in
+                            VStack(spacing: 5){
+                                Text(goalModel.extractWeekDate(date: day, format: "EEE"))
+
+                                ZStack{
+                                    Circle()
+                                        .fill(goalModel.isToday(date: day) ? Color("Color-2") : .white)
+                                        .frame(width: 43, height: 43)
+                                    Text(goalModel.extractWeekDate(date: day, format: "d"))
+                                    
+                                }.onTapGesture {
+                                    goalModel.currentDay = day
+                                }
+                            }.foregroundColor(.black)
+                                .frame(width: 45, height: 90)                            
                             ZStack{
                                 Circle()
                                     .fill(goalModel.isToday(date: day) ? Color("Color-2") : .white)

@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SwiftUI
 import AuthenticationServices
 import Contacts
 
 class SignInWithAppleDelegates: NSObject {
     private let signInSucceeded: (Bool) -> Void
     private weak var window: UIWindow!
+    
     
     init(window: UIWindow?, onSignedIn: @escaping(Bool) -> Void){
         self.window = window
@@ -28,15 +30,22 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
         print(error)
     }
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
         switch authorization.credential{
         case let appleCredential as ASAuthorizationAppleIDCredential:
+            AppManager.Authenticated.send(true)
+//            AppManager().saveSession(isSuccess: true)
             if let _ = appleCredential.email, let _ = appleCredential.fullName{
                 createNewAccount(credential: appleCredential)
             }else{
                 signInWithExitingAccount(credential: appleCredential)
+
             }
+
             break
         case let passwordCredential as ASPasswordCredential:
+            AppManager.Authenticated.send(true)
+//            AppManager().saveSession(isSuccess: true)
             signInWithUserNamePassword(credential: passwordCredential)
             break
         default:
@@ -51,27 +60,35 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
     
     
     private func createNewAccount(credential: ASAuthorizationAppleIDCredential){
-        let userData = UserData(email: credential.email!, name: credential.fullName!, identifier: credential.user)
-        
-        let keychain = UserDataKeychain()
-        
-        do{
-            try keychain.store(userData)
-            print(userData.identifier)
-        } catch{
-            self.signInSucceeded(false)
+//        let userData = UserData(email: credential.email!, name: credential.fullName!, identifier: credential.user)
+        let token  = "Bearer \(credential.user)"
+        guard let name = credential.fullName, let email = credential.email else{
+            return
         }
-        
+        let fullName = displayName(name: name)
+        let userNetwork = UserNetworkModel(fields: UserNetworkModelField(fullname: fullName, email: email, token: token))
+        NetworkManager.shared.callApi(with: .user, endPoint: UserAPI.getUser(token)) { userData in
+            print(userData)
+            if userData.id == nil{
+                NetworkManager.shared.postApi(with: .user, endPoint: UserAPI.postUser, data: userNetwork) { data in
+                    print(data)
+                }
+            }
+        }
         do{
-            let success = try WebApi.Register(user: userData, identityToken: credential.identityToken, authorizationCode: credential.authorizationCode)
-            self.signInSucceeded(success)
-        }catch{
+            try KeychainItem(service: "com.mc2Afternoon3.Alze.details", account: "userIdentifier").saveItem(credential.user)
+            self.signInSucceeded(true)
+
+        } catch{
             self.signInSucceeded(false)
         }
     }
     
+    func displayName(style: PersonNameComponentsFormatter.Style = .default, name: PersonNameComponents) -> String {
+        PersonNameComponentsFormatter.localizedString(from: name, style: style)
+    }
+    
     private func signInWithExitingAccount(credential: ASAuthorizationAppleIDCredential){
-        
         self.signInSucceeded(true)
     }
     

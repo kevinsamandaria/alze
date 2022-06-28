@@ -12,8 +12,10 @@ import AuthenticationServices
 struct Login: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.window) var window: UIWindow?
+    
     @State private var isSuccess = false
     @State var appleDelegate: SignInWithAppleDelegates! = nil
+//    @StateObject var appManager = AppManager()
     var body: some View {
 //        NavigationView{
             ZStack{
@@ -77,12 +79,9 @@ struct Login: View {
     }
     
     private func performSignIn(using requests: [ASAuthorizationRequest]){
-        
         appleDelegate = SignInWithAppleDelegates(window: window) { success in
             if success{
                 isSuccess = success
-                
-                
             }else{
                 isSuccess = success
             }
