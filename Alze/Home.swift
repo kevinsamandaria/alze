@@ -46,6 +46,7 @@ struct CardReminder: View {
         .background(.white)
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
+        
     }
 }
 
@@ -115,10 +116,12 @@ struct CardGoal: View {
         .cornerRadius(12)
         .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 2)
         .padding(.bottom, 8)
+        
     }
 }
 
 struct Home: View {
+    var userData: UserNetworkModelField?
     var columns = [
         GridItem(.adaptive(minimum: 300, maximum: 240), spacing: 16),
         GridItem(.adaptive(minimum: 300, maximum: 240), spacing: 16)
@@ -172,7 +175,7 @@ struct Home: View {
                         ForEach(reminders) { reminder in
                             NavigationLink(destination: ReminderView()) {
                                 CardReminder(reminder: reminder)
-
+                                
                             }
                         }
                     }.padding(16)
@@ -188,7 +191,7 @@ struct Home: View {
                     ForEach(goals) { row in
                         NavigationLink(destination: GoalList(goalDetail: row)) {
                             CardGoal(goal: row)
-
+                            
                         }
                     }
                 }.padding(.vertical).padding(.horizontal)
@@ -196,13 +199,20 @@ struct Home: View {
                 Spacer()
             }.navigationBarTitleDisplayMode(.inline)
         }.accentColor(.black)
-
+            .onAppear{
+                let token = "Bearer \(KeychainItem.currentUserIdentifier)"
+                NetworkManager.shared.callApi(with: .user, endPoint: UserAPI.getUser(token)) { userData in
+                    DispatchQueue.main.async {
+                        print("Tess: \(userData)")
+                    }
+                }
+            }
     }
 }
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        Home(userData: UserNetworkModelField(fullname: "", email: "", token: ""))
             .previewDevice("iPhone 13")
             .previewInterfaceOrientation(.portrait)
     }

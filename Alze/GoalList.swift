@@ -25,6 +25,7 @@ struct GoalList: View {
      GoalModel(id: UUID(), image: "brain.head.profile", category: 2, detail: "Reacting to Good News", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.",status: 0, repeatArray: [4,7])]
     var body: some View {
 //        NavigationView{
+        
            
             VStack(alignment: .center){
                 HStack{
