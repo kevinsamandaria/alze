@@ -20,7 +20,7 @@ struct CardReminder: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            Image(systemName: "\(reminder.image)")
+            Image(reminder.image)
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.indigo.opacity(0.5))
@@ -28,12 +28,13 @@ struct CardReminder: View {
             
             VStack(alignment: .leading, spacing: 12) {
                 Text("\(reminder.label)").font(.title2).fontWeight(.medium)
-                
+                    .foregroundColor(K.CustomColor.color)
+                    
                 HStack(spacing: 8) {
                     Text("\(reminder.time)")
                         .padding(.vertical, 4)
                         .padding(.horizontal, 18)
-                        .background(.indigo.opacity(0.2))
+                        .background(K.CustomColor.color2)
                         .cornerRadius(8)
                     Text("\(reminder.detail)")
                 }
@@ -53,14 +54,19 @@ struct Goal: Identifiable {
     var id = UUID()
     var label: String
     var image: String
+    var color: Color
+}
+
+struct GoalUser: Identifiable {
+    var id = UUID()
     var value: Int
     var valueTotal: Int
     var progress: Int
-    
 }
 
 struct CardGoal: View {
     let goal: Goal
+    let goalUser: GoalUser
     
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
@@ -71,19 +77,28 @@ struct CardGoal: View {
                     .padding(.horizontal, 12)
                     .padding(.top, 12)
                 
-                Text("\(goal.value)/\(goal.valueTotal)")
-                    .font(.title)
-                    .fontWeight(.regular)
-                    .padding(.horizontal, 12)
-                    .padding(.top, 4)
+                HStack(spacing: 0) {
+                    Text("\(goalUser.value)")
+                        .font(.title)
+                        .fontWeight(.regular)
+                        .padding(.leading, 12)
+                        .padding(.top, 4)
+                        .foregroundColor(goal.color)
+                    
+                    Text("/\(goalUser.valueTotal)")
+                        .font(.title)
+                        .fontWeight(.regular)
+                        .padding(.top, 4)
+                }
                 
                 Spacer()
                 
-                Text("\(goal.progress)%")
+                Text("\(goalUser.progress)%")
                     .font(.title)
                     .fontWeight(.regular)
                     .padding(.bottom, 12)
                     .padding(.horizontal, 12)
+                    .foregroundColor(goal.color)
                 
             }.frame(width: 172, alignment: .topLeading)
             
@@ -91,19 +106,21 @@ struct CardGoal: View {
                 Circle()
                     .stroke(lineWidth: 8)
                     .opacity(0.3)
-                    .foregroundColor(.indigo)
+                    .foregroundColor(goal.color)
                 
                 Circle()
-                    .trim(from: 0.0, to:  CGFloat(Double(goal.progress)/100.0))
+                    .trim(from: 0.0, to:  CGFloat(Double(goalUser.progress)/100.0))
                     .stroke(style: StrokeStyle(lineWidth: 8, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(.indigo)
+                    .foregroundColor(goal.color)
                     .animation(.linear, value: 1)
                     .rotationEffect(Angle(degrees: 270.0))
                 
-                Image(systemName: "star.fill")
-                    .padding()
+                Image(goal.image)
+                    .resizable()
+                    .scaledToFit()
+                    .padding(10)
                     .frame(width: 42, height: 42)
-                    .background(.indigo)
+                    .background(goal.color)
                     .foregroundColor(.white)
                     .cornerRadius(50)
             }
@@ -125,18 +142,25 @@ struct Home: View {
     ]
     
     var goals: [Goal] = [
-        Goal(label: "Mobility", image: "star.fill", value: 2, valueTotal: 4, progress: 48),
-        Goal(label: "Cognition", image: "heart.fill", value: 3, valueTotal: 4, progress: 75),
-        Goal(label: "Personal Care", image: "play.fill", value: 1, valueTotal: 4, progress: 25),
-        Goal(label: "Explore new Activity", image: "play.fill", value: 0, valueTotal: 4, progress: 0)
+        Goal(label: "Mobility", image: "ic-mobility", color: K.CustomColor.color5),
+        Goal(label: "Cognition", image: "ic-cognition", color: K.CustomColor.color7),
+        Goal(label: "Personal Care", image: "ic-personal", color: K.CustomColor.color6),
+        Goal(label: "Explore new Activity", image: "ic-explore", color: K.CustomColor.color8)
+    ]
+    
+    var goalsUser: [GoalUser] = [
+        GoalUser(value: 2, valueTotal: 4, progress: 48),
+        GoalUser(value: 3, valueTotal: 4, progress: 75),
+        GoalUser(value: 1, valueTotal: 4, progress: 25),
+        GoalUser(value: 0, valueTotal: 4, progress: 0)
     ]
     
     var reminders: [Reminder] = [
-        Reminder(label: "Donepozil", image: "star.fill", time: "13.00", detail: "After Eat"),
-        Reminder(label: "Donepozil", image: "star.fill", time: "13.00", detail: "After Eat"),
-        Reminder(label: "Donepozil", image: "star.fill", time: "13.00", detail: "After Eat"),
-        Reminder(label: "Donepozil", image: "star.fill", time: "13.00", detail: "After Eat"),
-        Reminder(label: "Donepozil", image: "star.fill", time: "13.00", detail: "After Eat")
+        Reminder(label: "Donepozil", image: "pill", time: "13.00", detail: "After Eat"),
+        Reminder(label: "Donepozil", image: "pill", time: "13.00", detail: "After Eat"),
+        Reminder(label: "Donepozil", image: "tablet", time: "13.00", detail: "After Eat"),
+        Reminder(label: "Donepozil", image: "tablet", time: "13.00", detail: "After Eat"),
+        Reminder(label: "Donepozil", image: "tablet", time: "13.00", detail: "After Eat")
     ]
     
     var body: some View {
@@ -156,7 +180,7 @@ struct Home: View {
                             Image(systemName: "bell.fill")
                                 .resizable()
                                 .frame(width: 24, height: 24)
-                                .foregroundColor(.indigo.opacity(0.8))
+                                .foregroundColor(K.CustomColor.color1)
                         }
                     }
                 }
@@ -185,9 +209,9 @@ struct Home: View {
                     .padding(.top, 32)
                 
                 LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach(goals) { row in
-                        NavigationLink(destination: GoalList(goalDetail: row)) {
-                            CardGoal(goal: row)
+                    ForEach(1..<5) { i in
+                        NavigationLink(destination: GoalList(goalDetail: goals[i-1])) {
+                            CardGoal(goal: goals[i-1], goalUser: goalsUser[i-1])
 
                         }
                     }

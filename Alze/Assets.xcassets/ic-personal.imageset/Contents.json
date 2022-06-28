@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "tablet.svg",
+      "filename" : "ic-personal.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tablet-1.svg",
+      "filename" : "ic-personal-1.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "tablet-2.svg",
+      "filename" : "ic-personal-2.pdf",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -11,6 +11,8 @@ struct AddReminderView: View {
     @State var medicineName: String = ""
     @State var beforeAfterEat: String = ""
     @State var onTap: Bool = true
+    @State var repeats: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+    @State var repeatDay: [Bool] = [false, false, false, false, false, false, false]
     @State var pillModal: Bool = false
     @State var notifToggle: Bool = false
     @State var pickTime: Bool = false
@@ -137,11 +139,33 @@ struct AddReminderView: View {
                     }
                 }.padding()
                 
-                //calendar
                 Group{
-                    Text("This is Calendar")
-                    
-                }.padding()
+                    VStack(spacing: 8){
+                        Text("Repeat").font(.system(size: 16))
+                            .fontWeight(.medium)
+                            .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 20, idealHeight: 20, maxHeight: 20, alignment: .leading)
+                        
+                        HStack(spacing: 10){
+                            ForEach(1..<8, id: \.self){ i in
+                                Button {
+                                    repeatDay[i-1] = !repeatDay[i-1]
+                                } label: {
+                                    Text(repeats[i-1])
+                                        .font(.caption)
+                                }
+                                .frame(minWidth: 42, idealWidth: 42, minHeight: 42, idealHeight: 42, maxHeight: 42)
+                                .foregroundColor(.black)
+                                .background(repeatDay[i-1] ? K.CustomColor.color2.cornerRadius(25) : Color.clear.cornerRadius(25))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 25)
+                                        .stroke(K.CustomColor.color1)
+                                )
+                            }
+                            
+                        }
+                    }.padding()
+                }
+                
                 Spacer()
                 Group{
                     Button {
