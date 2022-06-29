@@ -141,34 +141,24 @@
 		7C65169E284E60C20072348A /* Alze */ = {
 			isa = PBXGroup;
 			children = (
-				7CA05B6C2864501A00BC06CB /* Network */,
 				E229A69128571C8800EBA775 /* Dummy Data */,
 				7CB199092851A67300727A27 /* Alze.entitlements */,
 				7C65169F284E60C20072348A /* AlzeApp.swift */,
+				7C2F792C2855CBF50026679E /* SceneDelegates.swift */,
 				7C6516A1284E60C20072348A /* ContentView.swift */,
-				E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */,
-				E2CCA2C02864720E00DD8BD9 /* ModalView.swift */,
-				E226BCA32851FCB000A8ADAF /* ReminderView.swift */,
-				E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */,
-				490A3A6428597E06006E1568 /* AddGoal.swift */,
-				E25A4B7E285B1BC400F45B84 /* DescView.swift */,
-				7C553B59285E4DA100BB1F0A /* GoalList.swift */,
-				7CE3F06E2850832E009C9524 /* Login.swift */,
 				490A3A60285853A3006E1568 /* Home.swift */,
+				7CB03233286C2BA100B37DA0 /* Reminder */,
+				7CB03232286C2B5E00B37DA0 /* Goal */,
 				7C812745285F9F23008A5A01 /* Model */,
 				490A3A5E285850D0006E1568 /* Main.swift */,
+				E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */,
 				7C6516A3284E60C50072348A /* Assets.xcassets */,
-				7C6516A8284E60C50072348A /* Persistence.swift */,
-				7C6516AA284E60C50072348A /* Alze.xcdatamodeld */,
+				7CA05B6C2864501A00BC06CB /* Network */,
+				7CB03235286C2BEB00B37DA0 /* CoreData */,
 				7C6516A5284E60C50072348A /* Preview Content */,
-				7CB1990A2851A7A600727A27 /* SignInWithApple.swift */,
-				7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */,
+				7CB03231286C2B2F00B37DA0 /*  SignInAndRegister */,
 				7C48C6E62851E49A005A3AA0 /* CredentialStorage */,
-				7C48C6E92851E7A1005A3AA0 /* WebApi.swift */,
-				7C48C6EB2851F2FA005A3AA0 /* EnvironmentWindowKey.swift */,
-				7C2F792C2855CBF50026679E /* SceneDelegates.swift */,
-				7C729300285EE5F5004EAE6E /* Utils.swift */,
-				7CE3F0702850B9E3009C9524 /* K.swift */,
+				7CB03234286C2BC200B37DA0 /* Utils */,
 			);
 			path = Alze;
 			sourceTree = "<group>";
@@ -204,6 +194,56 @@
 				7CCAEA512865B10400F03711 /* NetworkMonitor.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7CB03231286C2B2F00B37DA0 /*  SignInAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				7CE3F06E2850832E009C9524 /* Login.swift */,
+				7CB1990A2851A7A600727A27 /* SignInWithApple.swift */,
+				7CB1990C2851AE5A00727A27 /* SignInWithAppleDelegates.swift */,
+			);
+			path = " SignInAndRegister";
+			sourceTree = "<group>";
+		};
+		7CB03232286C2B5E00B37DA0 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				490A3A6428597E06006E1568 /* AddGoal.swift */,
+				E25A4B7E285B1BC400F45B84 /* DescView.swift */,
+				7C553B59285E4DA100BB1F0A /* GoalList.swift */,
+			);
+			path = Goal;
+			sourceTree = "<group>";
+		};
+		7CB03233286C2BA100B37DA0 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				E239E3E5285888AE00A0C6C1 /* AddReminderView.swift */,
+				E2CCA2C02864720E00DD8BD9 /* ModalView.swift */,
+				E226BCA32851FCB000A8ADAF /* ReminderView.swift */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
+		7CB03234286C2BC200B37DA0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7C48C6E92851E7A1005A3AA0 /* WebApi.swift */,
+				7C48C6EB2851F2FA005A3AA0 /* EnvironmentWindowKey.swift */,
+				7C729300285EE5F5004EAE6E /* Utils.swift */,
+				7CE3F0702850B9E3009C9524 /* K.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		7CB03235286C2BEB00B37DA0 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				7C6516A8284E60C50072348A /* Persistence.swift */,
+				7C6516AA284E60C50072348A /* Alze.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		7CB5E12628680D040038CF9D /* Network model */ = {
