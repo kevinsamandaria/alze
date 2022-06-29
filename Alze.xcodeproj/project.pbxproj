@@ -141,24 +141,22 @@
 		7C65169E284E60C20072348A /* Alze */ = {
 			isa = PBXGroup;
 			children = (
-				E229A69128571C8800EBA775 /* Dummy Data */,
 				7CB199092851A67300727A27 /* Alze.entitlements */,
-				7C65169F284E60C20072348A /* AlzeApp.swift */,
-				7C2F792C2855CBF50026679E /* SceneDelegates.swift */,
-				7C6516A1284E60C20072348A /* ContentView.swift */,
-				490A3A60285853A3006E1568 /* Home.swift */,
-				7CB03233286C2BA100B37DA0 /* Reminder */,
-				7CB03232286C2B5E00B37DA0 /* Goal */,
+				E229A69128571C8800EBA775 /* Dummy Data */,
+				E2A5DFFF286C2D69009239A4 /* View */,
 				7C812745285F9F23008A5A01 /* Model */,
-				490A3A5E285850D0006E1568 /* Main.swift */,
-				E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */,
-				7C6516A3284E60C50072348A /* Assets.xcassets */,
 				7CA05B6C2864501A00BC06CB /* Network */,
 				7CB03235286C2BEB00B37DA0 /* CoreData */,
 				7C6516A5284E60C50072348A /* Preview Content */,
 				7CB03231286C2B2F00B37DA0 /*  SignInAndRegister */,
 				7C48C6E62851E49A005A3AA0 /* CredentialStorage */,
 				7CB03234286C2BC200B37DA0 /* Utils */,
+				7C65169F284E60C20072348A /* AlzeApp.swift */,
+				7C2F792C2855CBF50026679E /* SceneDelegates.swift */,
+				7C6516A1284E60C20072348A /* ContentView.swift */,
+				490A3A5E285850D0006E1568 /* Main.swift */,
+				E239E3E3285837CB00A0C6C1 /* CustomToggle.swift */,
+				7C6516A3284E60C50072348A /* Assets.xcassets */,
 			);
 			path = Alze;
 			sourceTree = "<group>";
@@ -264,6 +262,16 @@
 				E229A69228571CA700EBA775 /* DummyData.swift */,
 			);
 			path = "Dummy Data";
+			sourceTree = "<group>";
+		};
+		E2A5DFFF286C2D69009239A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				490A3A60285853A3006E1568 /* Home.swift */,
+				7CB03232286C2B5E00B37DA0 /* Goal */,
+				7CB03233286C2BA100B37DA0 /* Reminder */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
