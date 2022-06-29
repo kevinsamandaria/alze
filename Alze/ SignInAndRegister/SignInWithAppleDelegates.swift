@@ -19,9 +19,6 @@ class SignInWithAppleDelegates: NSObject {
         self.window = window
         self.signInSucceeded = onSignedIn
     }
-//    init(onSignedIn: @escaping(Bool) -> Void){
-//        self.signInSucceeded = onSignedIn
-//    }
 }
 
 extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
@@ -34,7 +31,7 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
         switch authorization.credential{
         case let appleCredential as ASAuthorizationAppleIDCredential:
             AppManager.Authenticated.send(true)
-//            AppManager().saveSession(isSuccess: true)
+            
             if let _ = appleCredential.email, let _ = appleCredential.fullName{
                 createNewAccount(credential: appleCredential)
             }else{
@@ -45,7 +42,6 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
             break
         case let passwordCredential as ASPasswordCredential:
             AppManager.Authenticated.send(true)
-//            AppManager().saveSession(isSuccess: true)
             signInWithUserNamePassword(credential: passwordCredential)
             break
         default:
@@ -60,7 +56,6 @@ extension SignInWithAppleDelegates: ASAuthorizationControllerDelegate{
     
     
     private func createNewAccount(credential: ASAuthorizationAppleIDCredential){
-//        let userData = UserData(email: credential.email!, name: credential.fullName!, identifier: credential.user)
         let token  = "Bearer \(credential.user)"
         guard let name = credential.fullName, let email = credential.email else{
             return

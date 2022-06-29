@@ -13,79 +13,68 @@ struct ReminderView: View {
     var medicines: [dummyData] = MedicineList.medicine
     
     var body: some View {
-//        NavigationView{
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("Reminders")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                    
-                    Spacer()
-                    
-                    NavigationLink(destination: AddReminderView()) {
-                        Image(systemName: "plus")
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Reminders")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                
+                Spacer()
+                
+                NavigationLink(destination: AddReminderView()) {
+                    Image(systemName: "plus")
                         .resizable()
                         .scaledToFill()
                         .frame(width:30, height: 30)
                         .foregroundColor(.black)
-                    }
-                    
-                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                }
                 
-                List(medicines, id: \.id){ item in
-                    HStack{
-                        Group{
-                            Image(item.image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 60)
-                                .padding(.leading, 13)
-                                .minimumScaleFactor(0.5)
-                            HStack{
-                                VStack (alignment: .leading, spacing: 8){
-                                    Text(item.medecineName)
+            }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            
+            List(medicines, id: \.id){ item in
+                HStack{
+                    Group{
+                        Image(item.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 60)
+                            .padding(.leading, 13)
+                            .minimumScaleFactor(0.5)
+                        HStack{
+                            VStack (alignment: .leading, spacing: 8){
+                                Text(item.medecineName)
+                                    .foregroundColor(K.CustomColor.color)
+                                    .font(.system(size: 24))
+                                HStack(spacing: 6){
+                                    Text(item.time)
                                         .foregroundColor(K.CustomColor.color)
-                                        .font(.system(size: 24))
-                                    HStack(spacing: 6){
-                                            Text(item.time)
-                                                .foregroundColor(K.CustomColor.color)
-                                                .font(.system(size: 16))
-                                                .frame(width: 75)
-                                                .background(K.CustomColor.color2)
-                                                .cornerRadius(8)
-                                                
-                                            Text(item.afterBeforeEat)
-                                                .font(.system(size: 16))
-                                    }
+                                        .font(.system(size: 16))
+                                        .frame(width: 75)
+                                        .background(K.CustomColor.color2)
+                                        .cornerRadius(8)
+                                    
+                                    Text(item.afterBeforeEat)
+                                        .font(.system(size: 16))
                                 }
                             }
                         }
-                        .padding(.vertical, 16)
-                        Spacer()
-                        Toggle("", isOn: $isSelected)
-                            .toggleStyle(CustomToggle())
-                            .padding(.trailing, 24)
                     }
-                    .listRowSeparator(.hidden)
-                    .background(
-                        RoundedRectangle(cornerRadius: 16)
-                            .fill(.white)
-                            .shadow(color: K.CustomColor.color2, radius: 16, x: 0, y: 0)
-                    )
-                    .frame(width: 350, height: 88, alignment: .leading)
+                    .padding(.vertical, 16)
+                    Spacer()
+                    Toggle("", isOn: $isSelected)
+                        .toggleStyle(CustomToggle())
+                        .padding(.trailing, 24)
                 }
-//                .navigationBarTitle("Reminders")
-//                .navigationBarItems(trailing:
-//                                        NavigationLink(destination: AddReminderView(), label: {
-//                    Image(systemName: "plus")
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(width:30, height: 30)
-//                        .foregroundColor(.black)
-//                }))
-                .accentColor(.black)
+                .listRowSeparator(.hidden)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(.white)
+                        .shadow(color: K.CustomColor.color2, radius: 16, x: 0, y: 0)
+                )
+                .frame(width: 350, height: 88, alignment: .leading)
+            }
+            .accentColor(.black)
             .listStyle(.plain)
-//            }.navigationBarTitleDisplayMode(.inline)
         }
     }
 }

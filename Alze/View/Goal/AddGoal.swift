@@ -14,7 +14,7 @@ struct AddGoal: View {
     @State var repeatToggle = false
     @State var selectDate: String
     @StateObject var goalModel = GoalViewModel()
-
+    
     
     @State var repeats: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     @State var repeatDay: [Bool] = [false, false, false, false, false, false, false]
@@ -22,7 +22,6 @@ struct AddGoal: View {
     @State var categoryId: Int
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            
             
             Text("Add Goals").font(.system(size: 24, weight: .medium))
             
@@ -41,7 +40,7 @@ struct AddGoal: View {
                         .padding(.top, 8)
                         .foregroundColor(.red)
                 }
-                                
+                
                 TextField("Goal Title", text: $goalTitle)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 12)
@@ -63,9 +62,7 @@ struct AddGoal: View {
                         .foregroundColor(.red)
                 }
                 
-                
                 ZStack(alignment: .topLeading) {
-                    
                     TextEditor(text: $description)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 12)
@@ -104,7 +101,6 @@ struct AddGoal: View {
                             .stroke(K.CustomColor.color1)
                     )
                 }
-                
             }
             
             Spacer()
@@ -115,7 +111,7 @@ struct AddGoal: View {
                     print(data)
                 }
                 self.presentationMode.wrappedValue.dismiss()
-
+                
             }) {
                 Text("Done").font(.system(size: 16, weight: .medium))
                     .frame(maxWidth: .infinity, minHeight: 52)

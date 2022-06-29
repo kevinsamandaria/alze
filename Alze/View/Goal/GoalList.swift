@@ -18,13 +18,9 @@ struct GoalList: View {
     @State var currentWeek: [Date] = []
     @State var toDetail: Bool = false
     @State var selectedDate: String = ""
-    //    var goalDetail : Goal
     var categoryId : Int
     
     @State var listData  = [GoalNetworkModel]()
-    //    [GoalModel(id: UUID(), image: "brain.head.profile", category: 2 , detail: "Remembering Recent 2", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 1, repeatArray: [1,2,3,5]),
-    //     GoalModel(id: UUID(), image: "brain.head.profile", category: 2,detail: "Answering Question", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.", status: 2, repeatArray: [2,5,7]),
-    //     GoalModel(id: UUID(), image: "brain.head.profile", category: 2, detail: "Reacting to Good News", description: "Remembering Recent Activity can be done by asking questions about the details of activity that have just been carried out. For example the activity name, who did they just meet, where were the activity take place, etc. \nCaregiver can help the patient to remembering the detail by telling them directly or giving them clues about the activity.",status: 0, repeatArray: [4,7])]
     var body: some View {
         
         VStack(alignment: .center){
@@ -56,7 +52,7 @@ struct GoalList: View {
                             }.onTapGesture {
                                 goalModel.currentDay = day
                                 selectedDate = goalModel.extractWeekDate(date: day, format: "M/dd/yyyy")
-
+                                
                                 getListData()
                             }
                         }.foregroundColor(.black)
@@ -66,7 +62,6 @@ struct GoalList: View {
                     
                 }
                 
-                //                ScrollView(.vertical){
                 VStack{
                     if listData.count >  0{
                         List{
@@ -98,6 +93,7 @@ struct GoalList: View {
     private func deleteRow(at indexSet: IndexSet) {
         listData.remove(atOffsets: indexSet)
     }
+    
     func getListData(){
         NetworkManager.shared.getUserGoal(with: .goal, endPoint: GoalAPI.getGoalCategory(KeychainItem.getToken, categoryId,selectedDate)) { goalData in
             DispatchQueue.main.async {
@@ -146,8 +142,6 @@ struct EmptyListView: View{
 struct ToDoList_Previews: PreviewProvider {
     static var previews: some View{
         GoalList(categoryId: 0)
-        //        GoalList(goalDetail: Goal(id: UUID(), label: "", image: "", value: 0, valueTotal: 0, progress: 0))
-        //        GoalList(goalDetail: Goal(id: UUID(), label: "", image: "", value: 0, valueTotal: 0, progress: 0))
     }
 }
 

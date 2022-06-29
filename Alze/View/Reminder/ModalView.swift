@@ -54,7 +54,6 @@ struct ModalView_Previews: PreviewProvider {
     }
 }
 
-
 struct TimeModalView: View {
     @Binding var timeModal:Bool
     @State var pickDate: Date = Date()

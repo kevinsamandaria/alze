@@ -16,9 +16,6 @@ struct GoalModel: Identifiable, Hashable {
     var status: Int
     var repeatArray : [Int]
     
-    
-//    var createAt:
-    
     func getStatus(status: Int) -> String{
         switch status{
         case 0:
@@ -46,7 +43,6 @@ struct GoalModel: Identifiable, Hashable {
             return ""
         }
     }
-    
 }
 
 

@@ -10,12 +10,14 @@ import Foundation
 struct UserRecords: Codable{
     var records: [UserNetworkModel]
 }
+
 struct UserNetworkModel: Codable {
     var id: String?
     var createdTime: String?
     var fields: UserNetworkModelField
     
 }
+
 struct UserNetworkModelField: Codable {
     var id: Int?
     var fullname: String

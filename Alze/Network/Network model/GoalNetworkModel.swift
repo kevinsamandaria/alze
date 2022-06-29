@@ -11,12 +11,14 @@ import SwiftUI
 struct GoalRecords: Codable{
     var records: [GoalNetworkModel]
 }
+
 struct GoalNetworkModel: Codable {
     var id: String?
     var createdTime: String?
     var fields: GoalNetworkModelField
     
 }
+
 struct GoalNetworkModelField: Codable {
     var id: Int?
     var title: String?
@@ -45,6 +47,7 @@ struct GoalNetworkModelField: Codable {
             return ""
         }
     }
+    
     func getImage(categoryId: Int) -> String{
         switch categoryId{
         case 0:
@@ -72,6 +75,5 @@ struct GoalNetworkModelField: Codable {
             return ""
         }
     }
-    
 }
 

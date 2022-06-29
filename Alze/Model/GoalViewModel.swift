@@ -17,21 +17,7 @@ class GoalViewModel: ObservableObject{
     func getCurrentWeek(){
         let calendar = Calendar.current
         let week = calendar.dateInterval(of: .weekOfMonth, for: currentDay)
-//        print("Week \(String(describing: week))")
-//        print("current Week : \(calendar.component(.weekOfYear, from: Date()))")
-//        guard let prevWeek = calendar.date(byAdding: .weekOfMonth, value: -1, to: Date()) else {
-//            return
-//        }
-//        guard let nextWeek = calendar.date(byAdding: .weekOfMonth, value: 1, to: Date()) else {
-//            return
-//        }
-//        let nextWeekDay = calendar.dateInterval(of: .weekOfMonth, for: nextWeek)
-//        let prevWeekDay = calendar.dateInterval(of: .weekOfMonth, for: prevWeek)
-//        print("Prev Week: \(prevWeekDay)")
-//        print("Next Week: \(nextWeekDay)")
-//        print("Tess :\(Date().cureentWeekMonday)")
-//        print("Tess Week \(Date().currentWeekdays)")
-//        
+        
         guard let firstWeekDay = week?.start else {
             return
         }
