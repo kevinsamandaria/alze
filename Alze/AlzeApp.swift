@@ -86,8 +86,6 @@ struct AppManager{
 }
 @main
 struct AlzeApp: App {
-//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-//    @StateObject var appManager = AppManager()
     
     let persistenceController = PersistenceController.shared
     var body: some Scene {
@@ -95,16 +93,6 @@ struct AlzeApp: App {
         WindowGroup {
             
             ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
-            
-
-            //            if appManager.isAuthorized{
-//                Home()
-////                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//            }else{
-//                Login().environmentObject(appManager)
-//                    
-////                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
-//            }
                 
         }
     }

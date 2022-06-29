@@ -11,7 +11,7 @@ class Connectivity{
     class func isConnectToInternet() -> Bool{
         return NetworkMonitor().isConnect
     }
-
+    
 }
 class NetworkManager: NSObject{
     //MARK: - Singleton
@@ -19,7 +19,7 @@ class NetworkManager: NSObject{
     let apiBaseUrl = "https://api.airtable.com/v0/"
     let apiKey = "Bearer keyi3zJ66VmtGueDf"
     let apiBaseId = "appLHN2xzL18TTxy7"
-        
+    
     private lazy var session: URLSession = {
         let configuration = URLSessionConfiguration.default
         configuration.waitsForConnectivity = true
@@ -44,6 +44,7 @@ class NetworkManager: NSObject{
             networkDelegate?.onResponse(from: nil, result: .failure(.missingUrl))
             return
         }
+        
         // Create the request to url
         var request = URLRequest(url: url)
         request.httpMethod = endPoint.method.rawValue
@@ -55,6 +56,7 @@ class NetworkManager: NSObject{
                 request.addValue(value, forHTTPHeaderField: key)
             }
         }
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 do{
@@ -70,14 +72,13 @@ class NetworkManager: NSObject{
                 print("No Data")
             }
         }.resume()
-
+        
     }
     
     func registerUser(with Table: TableType, endPoint: EndPointType, data: UserNetworkModel, completionHandler: @escaping(UserNetworkModel) -> Void){
         self.endPoint = endPoint
         
         // Construct a URL by assigning its parts to a URLComponents value
-
         var components = URLComponents()
         components.scheme = "https"
         components.host = endPoint.baseUrl
@@ -87,22 +88,24 @@ class NetworkManager: NSObject{
             networkDelegate?.onResponse(from: nil, result: .failure(.missingUrl))
             return
         }
+        
         // Create the request to url
         var request = URLRequest(url: url)
         request.httpMethod = endPoint.method.rawValue
-    
+        
         // Set the headers to request
         if let headers = endPoint.headers {
             for (key, value) in headers {
                 request.addValue(value, forHTTPHeaderField: key)
             }
         }
+        
         // Set httpBody
-
         guard let httpBody = try? JSONEncoder().encode(data) else{
             print("Invalid HttpBody")
             return
         }
+        
         request.httpBody = httpBody
         print("request \(request)")
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -133,10 +136,10 @@ class NetworkManager: NSObject{
             networkDelegate?.onResponse(from: nil, result: .failure(.missingUrl))
             return
         }
+        
         // Create the request to url
         var request = URLRequest(url: url)
         request.httpMethod = endPoint.method.rawValue
-        
         
         // Set the headers to request
         if let headers = endPoint.headers {
@@ -144,13 +147,11 @@ class NetworkManager: NSObject{
                 request.addValue(value, forHTTPHeaderField: key)
             }
         }
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 do{
                     let finalData = try JSONDecoder().decode(GoalRecords.self, from: data)
-//                    guard let userData = finalData.records else {
-//                        return
-//                    }
                     completionHandler(finalData.records)
                 }catch(let error){
                     print("Error: \(error.localizedDescription)")
@@ -159,14 +160,12 @@ class NetworkManager: NSObject{
                 print("No Data")
             }
         }.resume()
-
     }
     
     func postUserGoal(with Table: TableType, endPoint: EndPointType, data: GoalNetworkModel, completionHandler: @escaping(GoalNetworkModel) -> Void){
         self.endPoint = endPoint
         
         // Construct a URL by assigning its parts to a URLComponents value
-
         var components = URLComponents()
         components.scheme = "https"
         components.host = endPoint.baseUrl
@@ -176,10 +175,11 @@ class NetworkManager: NSObject{
             networkDelegate?.onResponse(from: nil, result: .failure(.missingUrl))
             return
         }
+        
         // Create the request to url
         var request = URLRequest(url: url)
         request.httpMethod = endPoint.method.rawValue
-    
+        
         // Set the headers to request
         if let headers = endPoint.headers {
             for (key, value) in headers {
@@ -188,11 +188,11 @@ class NetworkManager: NSObject{
         }
         
         // Set httpBody
-
         guard let httpBody = try? JSONEncoder().encode(data) else{
             print("Invalid HttpBody")
             return
         }
+        
         request.httpBody = httpBody
         print("request \(request)")
         URLSession.shared.dataTask(with: request) { data, response, error in

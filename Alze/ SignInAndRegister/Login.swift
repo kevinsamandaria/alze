@@ -15,50 +15,44 @@ struct Login: View {
     
     @State private var isSuccess = false
     @State var appleDelegate: SignInWithAppleDelegates! = nil
-//    @StateObject var appManager = AppManager()
     var body: some View {
-//        NavigationView{
-            ZStack{
-                VStack{
-                    
-                    Text("Hi there, \nI'm Alze")
-                        .font(.system(size: 41, weight: .semibold))
-                        .foregroundColor(K.CustomColor.color1)
-                        .padding(.top, 50)
-                    Image("pencil").resizable().scaledToFit().frame(width: 150, height: 150, alignment: .center)
-                    Text("Your new alzheimer's \ncare companion").font(.system(size: 16, weight: .light))
-                        .foregroundColor(K.CustomColor.color1).padding(.bottom, 120)
-                        .multilineTextAlignment(.center)
-                    
-                    Text("Create an account or log in using your Apple ID").font(.system(size: 10, weight: .regular))
-                        .foregroundColor(K.CustomColor.color1)
-                        .padding(.bottom, 24)
-                    
-//                    NavigationLink(destination: Home()) {
-                        SignInWithApple()
-                            .frame(width: K.screenSize.width * 0.8, height: 45)
-                            .cornerRadius(45 / 2)
-                            .onTapGesture(perform: showAppleLogin)
-                            .fullScreenCover(isPresented: $isSuccess) {
-                                Home()
-                            }
-//                    }
-                    
+        ZStack{
+            VStack{
                 
-                    Spacer()
-                    Text("By using our services you are agreeing to our \n **Terms** and **Privacy Statements**")
-                        .font(.system(size: 11))
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(K.CustomColor.color1)
-                }
-            }
-            .onAppear{
+                Text("Hi there, \nI'm Alze")
+                    .font(.system(size: 41, weight: .semibold))
+                    .foregroundColor(K.CustomColor.color1)
+                    .padding(.top, 50)
+                Image("pencil").resizable().scaledToFit().frame(width: 150, height: 150, alignment: .center)
+                Text("Your new alzheimer's \ncare companion").font(.system(size: 16, weight: .light))
+                    .foregroundColor(K.CustomColor.color1).padding(.bottom, 120)
+                    .multilineTextAlignment(.center)
                 
-                self.performExistingAccountSetupFlows()
+                Text("Create an account or log in using your Apple ID").font(.system(size: 10, weight: .regular))
+                    .foregroundColor(K.CustomColor.color1)
+                    .padding(.bottom, 24)
+                
+                SignInWithApple()
+                    .frame(width: K.screenSize.width * 0.8, height: 45)
+                    .cornerRadius(45 / 2)
+                    .onTapGesture(perform: showAppleLogin)
+                    .fullScreenCover(isPresented: $isSuccess) {
+                        Home()
+                    }
+                
+                Spacer()
+                Text("By using our services you are agreeing to our \n **Terms** and **Privacy Statements**")
+                    .font(.system(size: 11))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(K.CustomColor.color1)
             }
         }
-        
-//    }
+        .onAppear{
+            
+            self.performExistingAccountSetupFlows()
+        }
+    }
+    
     private func showAppleLogin(){
         let request = ASAuthorizationAppleIDProvider().createRequest()
         
@@ -86,6 +80,7 @@ struct Login: View {
                 isSuccess = success
             }
         }
+        
         let controller = ASAuthorizationController(authorizationRequests: requests)
         controller.delegate = appleDelegate
         controller.presentationContextProvider = appleDelegate

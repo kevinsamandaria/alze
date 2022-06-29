@@ -22,6 +22,7 @@ struct AddReminderView: View {
     var body: some View {
         ZStack{
             VStack(spacing:24){
+                
                 //Medicine Name
                 Group{
                     VStack(spacing: 8){
@@ -39,7 +40,6 @@ struct AddReminderView: View {
                             )
                     }
                 }.padding()
-                
                 
                 //How to use
                 Group{
@@ -76,7 +76,6 @@ struct AddReminderView: View {
                         }
                     }
                 }.padding()
-                
                 
                 //type and time
                 Group{
@@ -167,6 +166,7 @@ struct AddReminderView: View {
                 }
                 
                 Spacer()
+                
                 Group{
                     Button {
                         onTap = false
@@ -189,7 +189,6 @@ struct AddReminderView: View {
 
 struct AddReminderView_Previews: PreviewProvider {
     static var previews: some View {
-                AddReminderView()
-//        timePickerView()
+        AddReminderView()
     }
 }

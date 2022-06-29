@@ -19,20 +19,20 @@ struct MobilityDescView: View {
         ScrollView(.vertical){
             HStack{
                 VStack(spacing: 24){
-                        VStack(alignment:.leading, spacing: 8){
-                            Text("\(descGoal.detail)")
-                                .font(.title)
-                                .fontWeight(.medium)
-                                .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: .leading)
-                            
-                            Text("\(descGoal.getCategory(status: descGoal.category))")
-                                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                                .font(.system(size: 16))
-                                .frame(height: 30)
-                                .foregroundColor(.white)
-                                .background(K.CustomColor.color5.cornerRadius(8))
-                        }
-            
+                    VStack(alignment:.leading, spacing: 8){
+                        Text("\(descGoal.detail)")
+                            .font(.title)
+                            .fontWeight(.medium)
+                            .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: .leading)
+                        
+                        Text("\(descGoal.getCategory(status: descGoal.category))")
+                            .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                            .font(.system(size: 16))
+                            .frame(height: 30)
+                            .foregroundColor(.white)
+                            .background(K.CustomColor.color5.cornerRadius(8))
+                    }
+                    
                     Group{
                         if let goalDesc =  descGoal.description{
                             VStack(alignment: .leading){
@@ -47,6 +47,7 @@ struct MobilityDescView: View {
                             }
                         }
                     }
+                    
                     //Solved By
                     Group{
                         VStack(spacing: 8){
@@ -121,8 +122,6 @@ struct MobilityDescView: View {
 
 struct MobilityDescView_Previews: PreviewProvider {
     static var previews: some View {
-//        MobilityDescView(descGoal: GoalNetworkModelField(id: 0, title: "", category: "", categoryId: 0, status: "", statusId: 0, description: "", createdDate: "", notes: "", achiveBy: "", achiveById: 0, userToken: KeychainItem.currentUserIdentifier))
-
         MobilityDescView(descGoal: GoalModel(id: UUID(), image: "", category: 0, detail: "", description: "", status: 0, repeatArray: []))
     }
 }

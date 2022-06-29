@@ -20,7 +20,6 @@ struct dummyData: Identifiable{
 }
 
 struct MedicineList {
-//    var arrMedicine: [dummyData] = []
     
     static let medicine = [
         dummyData(image: "tablet", medecineName: "Donepezil", time: "13.00", afterBeforeEat: "After Eat"),

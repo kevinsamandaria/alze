@@ -29,7 +29,7 @@ struct CardReminder: View {
             VStack(alignment: .leading, spacing: 12) {
                 Text("\(reminder.label)").font(.title2).fontWeight(.medium)
                     .foregroundColor(K.CustomColor.color)
-                    
+                
                 HStack(spacing: 8) {
                     Text("\(reminder.time)")
                         .padding(.vertical, 4)
@@ -212,17 +212,16 @@ struct Home: View {
                     .padding(.top, 32)
                 
                 LazyVGrid(columns: columns, spacing: 8) {
-
+                    
                     ForEach(goals.indices) { row in
                         NavigationLink(destination: GoalList(categoryId: row)) {
                             CardGoal(goal: goals[row], goalUser: goalsUser[row])
-                            
                         }
-
                     }
                 }.padding(.vertical).padding(.horizontal)
                 
                 Spacer()
+                
             }.navigationBarTitleDisplayMode(.inline)
         }.accentColor(.black)
             .onAppear{

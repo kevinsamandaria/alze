@@ -19,10 +19,8 @@ final class NetworkMonitor: ObservableObject{
             DispatchQueue.main.async {
                 self.isConnect = path.status == .satisfied ? true : false
             }
-            
         }
         monitor.start(queue: queue)
     }
-    
 }
 
