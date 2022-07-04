@@ -91,8 +91,8 @@ struct AlzeApp: App {
     var body: some Scene {
 
         WindowGroup {
-            AddReminderView(typeId: 0, selectedTime: "")
-//            ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
+//            AddReminderView(typeId: 0, selectedTime: "")
+            ContentView().environment(\.managedObjectContext, persistenceController.container.viewContext)
                 
         }
     }

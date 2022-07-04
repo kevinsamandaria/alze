@@ -67,7 +67,6 @@ struct GoalList: View {
                     if listData.count >  0{
                         List{
                             ForEach(listData, id: \.id) { data in
-                                
                                 let dataGoal = GoalModel(category: data.fields.categoryId ?? 0, detail: data.fields.title ?? "", description: data.fields.description ?? "", status: data.fields.statusId ?? 0, repeatArray: [0])
                                 NavigationLink(destination: MobilityDescView(descGoal: dataGoal)) {
                                     ListCell(listModel: data.fields)
@@ -92,13 +91,24 @@ struct GoalList: View {
     }
     
     private func deleteRow(at indexSet: IndexSet) {
-        guard let index = listData[indexSet.hashValue].id else { return }
-        NetworkManager.shared.deleteUserGoal(with: .goal, endPoint: GoalAPI.deleteGoal(String(index))) {
-            goalData in DispatchQueue.main.async {
-
-            }
+        let idsToDelete = indexSet.map { self.listData[$0].id }
+//        print(idsToDelete)
+//
+//        print(indexSet.first)
+        
+        guard let idToDelete = idsToDelete.first else {
+            return
+        }
+        
+        NetworkManager.shared.deleteUserGoal(with: .goal, endPoint: GoalAPI.deleteGoal(idToDelete ?? "")) { goalData in
             print(goalData)
         }
+//        NetworkManager.shared.deleteUserGoal(with: .goal, endPoint: GoalAPI.deleteGoal()) {
+//            goalData in DispatchQueue.main.async {
+//
+//            }
+//            print(goalData)
+//        }
         listData.remove(atOffsets: indexSet)
     }
     
