@@ -30,6 +30,7 @@ struct AddReminderView: View {
                             .font(.system(size: 16))
                             .fontWeight(.medium)
                             .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 20, idealHeight: 20, maxHeight: 20, alignment: .leading)
+                            .foregroundColor(.black)
                         
                         TextField("Medicine Name...", text: $medicineName )
                             .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 51, idealHeight: 51, maxHeight: 51)
@@ -38,6 +39,7 @@ struct AddReminderView: View {
                                 RoundedRectangle(cornerRadius: 16)
                                     .stroke(K.CustomColor.color1)
                             )
+                            .colorScheme(.light)
                     }
                 }.padding()
                 
@@ -48,6 +50,8 @@ struct AddReminderView: View {
                             .font(.system(size: 16))
                             .fontWeight(.medium)
                             .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 20, idealHeight: 20, maxHeight: 20, alignment: .leading)
+                            .foregroundColor(.black)
+                        
                         HStack(spacing: 16){
                             Button("Before Eat") {
                                 self.beforeAfterEat = "Before Eat"
@@ -85,6 +89,8 @@ struct AddReminderView: View {
                             Text("Type")
                                 .font(.system(size: 16))
                                 .fontWeight(.medium)
+                                .foregroundColor(.black)
+                            
                             ZStack{
                                 Button {
                                     pillModal = true
@@ -113,6 +119,7 @@ struct AddReminderView: View {
                             Text("Time")
                                 .font(.system(size: 16))
                                 .fontWeight(.medium)
+                                .foregroundColor(.black)
                             
                             Button {
                                 pickTime.toggle()
@@ -143,6 +150,7 @@ struct AddReminderView: View {
                         Text("Repeat").font(.system(size: 16))
                             .fontWeight(.medium)
                             .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 20, idealHeight: 20, maxHeight: 20, alignment: .leading)
+                            .foregroundColor(.black)
                         
                         HStack(spacing: 10){
                             ForEach(1..<8, id: \.self){ i in
@@ -182,6 +190,7 @@ struct AddReminderView: View {
             PillModalView(pillModal: $pillModal)
             TimeModalView(timeModal: $pickTime)
         }
+        .background(Color("Color-4"))
     }
 }
 

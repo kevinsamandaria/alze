@@ -17,6 +17,8 @@ struct Login: View {
     @State var appleDelegate: SignInWithAppleDelegates! = nil
     var body: some View {
         ZStack{
+            Color("Color-4").ignoresSafeArea()
+            
             VStack{
                 
                 Text("Hi there, \nI'm Alze")
@@ -86,8 +88,6 @@ struct Login: View {
         controller.presentationContextProvider = appleDelegate
         controller.performRequests()
     }
-    
-    
 }
 
 struct Login_Previews: PreviewProvider {

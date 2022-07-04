@@ -173,6 +173,7 @@ struct Home: View {
                 ZStack(alignment: .leading) {
                     Text("Good Morning, Alze")
                         .font(.title)
+                        .foregroundColor(.black)
                         .fontWeight(.semibold)
                     
                     HStack {
@@ -191,6 +192,7 @@ struct Home: View {
                 
                 Text("Today's Reminder")
                     .font(.headline)
+                    .foregroundColor(.black)
                     .fontWeight(.regular)
                     .padding(.horizontal)
                 
@@ -207,6 +209,7 @@ struct Home: View {
                 
                 Text("Today's Goal")
                     .font(.headline)
+                    .foregroundColor(.black)
                     .fontWeight(.regular)
                     .padding(.horizontal)
                     .padding(.top, 32)
@@ -222,7 +225,9 @@ struct Home: View {
                 
                 Spacer()
                 
-            }.navigationBarTitleDisplayMode(.inline)
+            }
+            .background(Color("Color-4"))
+            .navigationBarTitleDisplayMode(.inline)
         }.accentColor(.black)
             .onAppear{
                 let token = "Bearer \(KeychainItem.currentUserIdentifier)"
