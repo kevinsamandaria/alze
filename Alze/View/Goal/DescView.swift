@@ -25,7 +25,7 @@ struct MobilityDescView: View {
                             .fontWeight(.medium)
                             .frame(minWidth: 350, idealWidth: 350, maxWidth: .infinity, minHeight: 30, idealHeight: 30, maxHeight: 30, alignment: .leading)
                         
-                        Text("\(descGoal.getCategory(status: descGoal.category))")
+                        Text("\(descGoal.getCategory(category: descGoal.category))")
                             .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                             .font(.system(size: 16))
                             .frame(height: 30)

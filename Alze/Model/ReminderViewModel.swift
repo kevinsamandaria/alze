@@ -1,13 +1,13 @@
 //
-//  GoalViewModel.swift
+//  ReminderViewModel.swift
 //  Alze
 //
-//  Created by Chrismanto Natanail Manik on 21/06/22.
+//  Created by Kevin  Sam Andaria on 04/07/22.
 //
 
-import SwiftUI
+import Foundation
 
-class GoalViewModel: ObservableObject{
+class ReminderViewModel: ObservableObject {
     init(){
         getCurrentWeek()
     }
@@ -15,6 +15,7 @@ class GoalViewModel: ObservableObject{
     @Published var currentWeek: [Date] = []
     @Published var currentDay : Date = Date()
     @Published var currWeek: Int = 26
+    
     func getCurrentWeek(){
         let calendar = Calendar.current
         let week = calendar.dateInterval(of: .weekOfMonth, for: currentDay)
@@ -42,32 +43,14 @@ class GoalViewModel: ObservableObject{
         return calendar.isDate(currentDay, inSameDayAs: date)
     }
     
-    func getCategory(status: Int) -> String{
+    func getType(status: Int) -> String{
         switch status{
         case 0:
-            return "Mobility"
+            return "Pill"
         case 1:
-            return "Cognition"
-        case 2:
-            return "Personal Care"
-        case 3:
-            return "Explore new Activity"
+            return "Tablet"
         default:
             return ""
         }
-    }
-}
-
-extension Calendar {
-    static let iso8601 = Calendar(identifier: .iso8601)
-}
-
-extension Date {
-    var cureentWeekMonday: Date {
-        return Calendar.iso8601.date(from: Calendar.iso8601.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))!
-    }
-    
-    var currentWeekdays: [Date] {
-        return (1...7).compactMap{ Calendar.iso8601.date(byAdding: DateComponents(day: $0), to: cureentWeekMonday) } // for Swift versions earlier than 4.1 use flatMap instead
     }
 }

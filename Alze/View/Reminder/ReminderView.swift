@@ -10,6 +10,8 @@ import SwiftUI
 struct ReminderView: View {
     @State var isSelected: Bool = false
     @State var changeView: Bool = false
+    @State var selectedDate: String = ""
+    @State var typeId: Int
     var medicines: [dummyData] = MedicineList.medicine
     
     var body: some View {
@@ -22,7 +24,7 @@ struct ReminderView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: AddReminderView()) {
+                NavigationLink(destination: AddReminderView(typeId: typeId, selectedDate: selectedDate)) {
                     Image(systemName: "plus")
                         .resizable()
                         .scaledToFill()
@@ -84,6 +86,6 @@ struct ReminderView: View {
 
 struct ReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReminderView()
+        ReminderView(typeId: 0)
     }
 }

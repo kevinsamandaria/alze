@@ -34,9 +34,9 @@ extension ReminderAPI: EndPointType {
     var path: String {
         switch self{
         case .patchReminder(let recordId), .deleteReminder(let recordId):
-            return "/v0/appLHN2xzL18TTxy7/GoalTable/\(recordId)"
+            return "/v0/appLHN2xzL18TTxy7/ReminderTable/\(recordId)"
         default:
-            return "/v0/appLHN2xzL18TTxy7/GoalTable/"
+            return "/v0/appLHN2xzL18TTxy7/ReminderTable/"
         }
     }
     

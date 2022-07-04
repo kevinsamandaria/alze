@@ -11,13 +11,18 @@ struct AddReminderView: View {
     @State var medicineName: String = ""
     @State var beforeAfterEat: String = ""
     @State var onTap: Bool = true
+    
     @State var repeats: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     @State var repeatDay: [Bool] = [false, false, false, false, false, false, false]
+    
     @State var pillModal: Bool = false
-    @State var notifToggle: Bool = false
     @State var pickTime: Bool = false
-    @State var time: Date = Date()
-    @State var types: String = "Pill"
+    @State var typeId: Int
+    @State var selectedDate: String
+//    @State var time: Date = Date()
+//    @State var types: String = "Pill"
+    
+    @StateObject var reminderModel = ReminderViewModel()
     
     var body: some View {
         ZStack{
@@ -177,7 +182,11 @@ struct AddReminderView: View {
                 
                 Group{
                     Button {
-                        onTap = false
+                        let reminderData = ReminderNetworkModel(fields: ReminderNetworkModelField(title: medicineName, type: reminderModel.getType(status: typeId ), typeId: typeId, mediceTaken: beforeAfterEat, status: "Not Done", statusId: 1, userToken: KeychainItem.getToken))
+                        print(reminderData)
+                        NetworkManager.shared.postUserReminder(with: .reminder, endPoint: ReminderAPI.postReminder, data: reminderData) { data in
+                            print(data)
+                        }
                     } label: {
                         Text("Save Reminder")
                     }
@@ -187,7 +196,7 @@ struct AddReminderView: View {
                     
                 }.padding()
             }
-            PillModalView(pillModal: $pillModal)
+            PillModalView(pillModal: $pillModal, typeId: typeId)
             TimeModalView(timeModal: $pickTime)
         }
         .background(Color("Color-4"))
@@ -198,6 +207,6 @@ struct AddReminderView: View {
 
 struct AddReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReminderView()
+        AddReminderView(typeId: 0, selectedDate: "")
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct PillModalView: View {
     
     @Binding var pillModal:Bool
+    @State var typeId: Int
     @State private var currHeight:CGFloat = 400
     let minHeight: CGFloat = 400
     
@@ -32,10 +33,30 @@ struct PillModalView: View {
                                 .frame(maxWidth:.infinity, alignment:.trailing)
                         }
                     }
-                    .padding(20)
-                    Text("Hello")
+                    .padding(.trailing, 20)
+                    
+                    ZStack{
+                        VStack{
+                            Button {
+                                typeId = 0
+                                pillModal.toggle()
+                            } label: {
+                                Text("Pill")
+                                    .font(.system(size: 25))
+                            }
+                            Divider()
+                            Button {
+                                typeId = 1
+                                pillModal.toggle()
+                            } label: {
+                                Text("Tablet")
+                                    .font(.system(size: 25))
+                            }
+                        }
+                    }
+                    .frame(maxHeight: 150)
                 }
-                .frame(height: currHeight)
+                .frame(height: 200)
                 .frame(maxWidth: .infinity)
                 .background(.white)
                 .transition(.move(edge: .bottom))
@@ -50,7 +71,7 @@ struct PillModalView: View {
 
 struct ModalView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReminderView()
+        AddReminderView(typeId: 0, selectedDate: "")
     }
 }
 
