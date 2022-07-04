@@ -11,7 +11,6 @@ struct AddGoal: View {
     @Environment(\.presentationMode) var presentationMode
     @State var goalTitle = ""
     @State var description = ""
-    @State var repeatToggle = false
     @State var selectDate: String
     @StateObject var goalModel = GoalViewModel()
     

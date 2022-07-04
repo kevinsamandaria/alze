@@ -29,8 +29,8 @@ struct GoalModel: Identifiable, Hashable {
         }
     }
     
-    func getCategory(status: Int) -> String{
-        switch status{
+    func getCategory(category: Int) -> String{
+        switch category{
         case 0:
             return "Mobility"
         case 1:
