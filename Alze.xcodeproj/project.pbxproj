@@ -10,6 +10,7 @@
 		490A3A5F285850D0006E1568 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A5E285850D0006E1568 /* Main.swift */; };
 		490A3A61285853A3006E1568 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A60285853A3006E1568 /* Home.swift */; };
 		490A3A6528597E06006E1568 /* AddGoal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490A3A6428597E06006E1568 /* AddGoal.swift */; };
+		490B2D992873533D006B80CD /* GoalDeleteNetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490B2D982873533D006B80CD /* GoalDeleteNetworkModel.swift */; };
 		7C2F792D2855CBF50026679E /* SceneDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2F792C2855CBF50026679E /* SceneDelegates.swift */; };
 		7C442AE1286AE8A80001B4CF /* GoalEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C442AE0286AE8A80001B4CF /* GoalEndPoint.swift */; };
 		7C48C6E32851E175005A3AA0 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C48C6E22851E175005A3AA0 /* UserData.swift */; };
@@ -59,6 +60,7 @@
 		490A3A5E285850D0006E1568 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		490A3A60285853A3006E1568 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		490A3A6428597E06006E1568 /* AddGoal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoal.swift; sourceTree = "<group>"; };
+		490B2D982873533D006B80CD /* GoalDeleteNetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalDeleteNetworkModel.swift; sourceTree = "<group>"; };
 		7C2F792C2855CBF50026679E /* SceneDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegates.swift; sourceTree = "<group>"; };
 		7C442AE0286AE8A80001B4CF /* GoalEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalEndPoint.swift; sourceTree = "<group>"; };
 		7C48C6E22851E175005A3AA0 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				E237D4AD2872A220006F2A46 /* ReminderEndPoint.swift */,
 				7CB5E12B2868214D0038CF9D /* UserEndPoint.swift */,
 				7C442AE0286AE8A80001B4CF /* GoalEndPoint.swift */,
+				490B2D982873533D006B80CD /* GoalDeleteNetworkModel.swift */,
 			);
 			path = "Network model";
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				7CB5E12528680C4C0038CF9D /* UserNetworkModel.swift in Sources */,
 				7C6516A0284E60C20072348A /* AlzeApp.swift in Sources */,
 				E229A69328571CA700EBA775 /* DummyData.swift in Sources */,
+				490B2D992873533D006B80CD /* GoalDeleteNetworkModel.swift in Sources */,
 				E2CCA2C12864720E00DD8BD9 /* ModalView.swift in Sources */,
 				E237D4AE2872A220006F2A46 /* ReminderEndPoint.swift in Sources */,
 				7C48C6E32851E175005A3AA0 /* UserData.swift in Sources */,

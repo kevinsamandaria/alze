@@ -209,6 +209,50 @@ class NetworkManager: NSObject{
         }.resume()
     }
     
+    func deleteUserGoal(with Table: TableType, endPoint: EndPointType, completionHandler: @escaping([GoalDeleteNetworkModel]) -> Void){
+        self.endPoint = endPoint
+        
+        // Construct a URL by assigning its parts to a URLComponents value
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = endPoint.baseUrl
+        components.path = endPoint.path
+        
+        guard let url = components.url else{
+            networkDelegate?.onResponse(from: nil, result: .failure(.missingUrl))
+            return
+        }
+        
+        guard let url = components.url else{
+            networkDelegate?.onResponse(from: nil, result: .failure(.missingUrl))
+            return
+        }
+        
+        // Create the request to url
+        var request = URLRequest(url: url)
+        request.httpMethod = endPoint.method.rawValue
+        
+        // Set the headers to request
+        if let headers = endPoint.headers {
+            for (key, value) in headers {
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let data = data {
+                do{
+                    let finalData = try JSONDecoder().decode(GoalDeleteRecords.self, from: data)
+                    completionHandler(finalData.records)
+                }catch(let error){
+                    print("Error: \(error.localizedDescription)")
+                }
+            }else{
+                print("No Data")
+            }
+        }.resume()
+    }
+    
     func getUserReminder(with Table: TableType, endPoint: EndPointType, completionHandler: @escaping([ReminderNetworkModel]) -> Void){
         self.endPoint = endPoint
         
