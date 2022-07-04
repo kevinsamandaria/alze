@@ -28,6 +28,7 @@ struct GoalList: View {
             HStack{
                 Text("Today's \(goalModel.getCategory(status: categoryId)) Goals")
                     .font(.system(size: 24))
+                    .foregroundColor(.black)
                 Spacer()
                 NavigationLink(destination: AddGoal(selectDate: selectedDate, categoryId: categoryId)) {
                     Image(systemName: "plus")

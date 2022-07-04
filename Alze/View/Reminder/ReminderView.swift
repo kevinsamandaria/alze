@@ -20,6 +20,7 @@ struct ReminderView: View {
                 Text("Reminders")
                     .font(.title)
                     .fontWeight(.semibold)
+                    .foregroundColor(.black)
                 
                 Spacer()
                 
@@ -67,6 +68,7 @@ struct ReminderView: View {
                         .toggleStyle(CustomToggle())
                         .padding(.trailing, 24)
                 }
+                .listRowBackground(Color("Color-4"))
                 .listRowSeparator(.hidden)
                 .background(
                     RoundedRectangle(cornerRadius: 16)
@@ -78,6 +80,7 @@ struct ReminderView: View {
             .accentColor(.black)
             .listStyle(.plain)
         }
+        .background(Color("Color-4"))
     }
 }
 

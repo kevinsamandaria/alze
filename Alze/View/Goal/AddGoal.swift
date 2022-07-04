@@ -19,10 +19,12 @@ struct AddGoal: View {
     @State var repeatDay: [Bool] = [false, false, false, false, false, false, false]
     
     @State var categoryId: Int
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             
             Text("Add Goals").font(.system(size: 24, weight: .medium))
+                .foregroundColor(.black)
             
             Text("Explore Activity").font(.system(size: 16, weight: .medium))
                 .padding(6)
@@ -34,6 +36,7 @@ struct AddGoal: View {
                 HStack(spacing: 0.0) {
                     Text("Goal Title").font(.system(size: 16, weight: .medium))
                         .padding(.top, 8)
+                        .foregroundColor(.black)
                     
                     Text("*").font(.system(size: 16, weight: .medium))
                         .padding(.top, 8)
@@ -48,6 +51,7 @@ struct AddGoal: View {
                         RoundedRectangle(cornerRadius: 16)
                             .stroke(K.CustomColor.color1)
                     )
+                    .colorScheme(.light)
                 
             }
             
@@ -55,6 +59,7 @@ struct AddGoal: View {
                 HStack(spacing: 0.0) {
                     Text("Description").font(.system(size: 16, weight: .medium))
                         .padding(.top, 8)
+                        .foregroundColor(.black)
                     
                     Text("*").font(.system(size: 16, weight: .medium))
                         .padding(.top, 8)
@@ -70,6 +75,10 @@ struct AddGoal: View {
                             RoundedRectangle(cornerRadius: 16)
                                 .stroke(K.CustomColor.color1)
                         )
+                        .colorScheme(.light)
+                        .onAppear {
+                            UITextView.appearance().backgroundColor = .clear
+                        }
                     
                     if description == "" {
                         Text("Write a desc about the activity  …")
@@ -77,12 +86,14 @@ struct AddGoal: View {
                             .opacity(0.25)
                             .padding(.horizontal, 18)
                             .padding(.vertical, 20)
+                            .colorScheme(.light)
                     }
                 }
             }
             
             Text("Repeat").font(.system(size: 16, weight: .medium))
                 .padding(.top, 8)
+                .foregroundColor(.black)
             
             HStack(spacing: 10){
                 ForEach(1..<8, id: \.self){ i in
@@ -120,6 +131,7 @@ struct AddGoal: View {
             }
         }
         .padding()
+        .background(Color("Color-4"))
     }
 }
 

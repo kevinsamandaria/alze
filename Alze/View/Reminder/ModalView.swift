@@ -65,7 +65,7 @@ struct PillModalView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea(.all)
         .animation(.easeInOut)
-        
+        .colorScheme(.light)
     }
 }
 
@@ -113,6 +113,7 @@ struct TimeModalView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
         .ignoresSafeArea()
         .animation(.easeInOut)
+        .colorScheme(.light)
     }
 }
 
