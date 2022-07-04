@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct GoalDeleteRecords: Codable{
-    var records: [GoalDeleteNetworkModel]
-}
+//struct GoalDeleteRecords: Codable{
+//    var records: [GoalDeleteNetworkModel]
+//}
 
 struct GoalDeleteNetworkModel: Codable {
     var id: String?

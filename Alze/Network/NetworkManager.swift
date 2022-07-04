@@ -209,7 +209,7 @@ class NetworkManager: NSObject{
         }.resume()
     }
     
-    func deleteUserGoal(with Table: TableType, endPoint: EndPointType, completionHandler: @escaping([GoalDeleteNetworkModel]) -> Void){
+    func deleteUserGoal(with Table: TableType, endPoint: EndPointType, completionHandler: @escaping(GoalDeleteNetworkModel) -> Void){
         self.endPoint = endPoint
         
         // Construct a URL by assigning its parts to a URLComponents value
@@ -242,8 +242,8 @@ class NetworkManager: NSObject{
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
                 do{
-                    let finalData = try JSONDecoder().decode(GoalDeleteRecords.self, from: data)
-                    completionHandler(finalData.records)
+                    let finalData = try JSONDecoder().decode(GoalDeleteNetworkModel.self, from: data)
+                    completionHandler(finalData)
                 }catch(let error){
                     print("Error: \(error.localizedDescription)")
                 }
