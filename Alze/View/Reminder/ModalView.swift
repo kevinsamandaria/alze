@@ -10,7 +10,7 @@ import SwiftUI
 struct PillModalView: View {
     
     @Binding var pillModal:Bool
-    @State var typeId: Int
+    @Binding var typeId: Int
     @State private var currHeight:CGFloat = 400
     let minHeight: CGFloat = 400
     
@@ -71,13 +71,15 @@ struct PillModalView: View {
 
 struct ModalView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReminderView(typeId: 0, selectedDate: "")
+        AddReminderView(typeId: 0, selectedTime: "")
     }
 }
 
 struct TimeModalView: View {
     @Binding var timeModal:Bool
     @State var pickDate: Date = Date()
+    @State var dateFormater = DateFormatter()
+    @Binding var dateString: String
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -90,6 +92,8 @@ struct TimeModalView: View {
                     ZStack{
                         Button {
                             timeModal.toggle()
+                            dateFormater.dateFormat = "HH:mm"
+                            dateString = dateFormater.string(from: pickDate)
                         } label: {
                             Text("Done")
                                 .frame(maxWidth:.infinity, alignment:.trailing)

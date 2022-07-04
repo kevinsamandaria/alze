@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddReminderView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var medicineName: String = ""
     @State var beforeAfterEat: String = ""
     @State var onTap: Bool = true
@@ -18,9 +19,7 @@ struct AddReminderView: View {
     @State var pillModal: Bool = false
     @State var pickTime: Bool = false
     @State var typeId: Int
-    @State var selectedDate: String
-//    @State var time: Date = Date()
-//    @State var types: String = "Pill"
+    @State var selectedTime: String
     
     @StateObject var reminderModel = ReminderViewModel()
     
@@ -107,13 +106,20 @@ struct AddReminderView: View {
                                         .frame(width: 36, height: 36)
                                         .padding(.trailing, 8)
                                     
-                                    Text("Pill")
-                                        .font(.system(size: 16))
-                                        .foregroundColor(.black)
-                                        .padding(.trailing, 44)
+                                    if typeId == 0 {
+                                        Text("Pill")
+                                            .font(.system(size: 16))
+                                            .foregroundColor(.black)
+                                    } else {
+                                        Text("Tablet")
+                                            .font(.system(size: 16))
+                                            .foregroundColor(.black)
+                                    }
+                                    Spacer()
                                     Image(systemName: "chevron.down")
                                         .foregroundColor(.black)
                                 }
+                                .padding()
                                 .frame(minWidth: 167, idealWidth: 167, maxWidth: .infinity, minHeight: 68, idealHeight: 68, maxHeight: 68)
                                 .overlay(RoundedRectangle(cornerRadius: 16).stroke(K.CustomColor.color1))
                             }
@@ -134,16 +140,23 @@ struct AddReminderView: View {
                                     .scaledToFill()
                                     .foregroundColor(K.CustomColor.color1)
                                     .frame(width: 36, height: 36)
-                                    .padding(.leading, 16)
+
                                 
-                                Text("11.00")
-                                    .font(.system(size: 16))
-                                    .foregroundColor(.black)
-                                    .padding(.trailing, 32)
+                                if selectedTime == "" {
+                                    Text(reminderModel.extractWeekDate(date: Date(), format: "HH:mm"))
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.black)
+                                } else {
+                                    Text("\(selectedTime)")
+                                        .font(.system(size: 16))
+                                        .foregroundColor(.black)
+                                }
                                 
+                                Spacer()
                                 Image(systemName: "chevron.down")
                                     .foregroundColor(.black)
                             }
+                            .padding()
                             .frame(minWidth: 167, idealWidth: 167, maxWidth: .infinity, minHeight: 68, idealHeight: 68, maxHeight: 68)
                             .overlay(RoundedRectangle(cornerRadius: 16).stroke(K.CustomColor.color1))
                         }
@@ -182,11 +195,12 @@ struct AddReminderView: View {
                 
                 Group{
                     Button {
-                        let reminderData = ReminderNetworkModel(fields: ReminderNetworkModelField(title: medicineName, type: reminderModel.getType(status: typeId ), typeId: typeId, mediceTaken: beforeAfterEat, status: "Not Done", statusId: 1, userToken: KeychainItem.getToken))
+                        let reminderData = ReminderNetworkModel(fields: ReminderNetworkModelField(title: medicineName, type: reminderModel.getType(status: typeId ), typeId: typeId, time: selectedTime, mediceTaken: beforeAfterEat, status: "Not Done", statusId: 1, userToken: KeychainItem.getToken))
                         print(reminderData)
                         NetworkManager.shared.postUserReminder(with: .reminder, endPoint: ReminderAPI.postReminder, data: reminderData) { data in
                             print(data)
                         }
+                        self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save Reminder")
                     }
@@ -196,8 +210,8 @@ struct AddReminderView: View {
                     
                 }.padding()
             }
-            PillModalView(pillModal: $pillModal, typeId: typeId)
-            TimeModalView(timeModal: $pickTime)
+            PillModalView(pillModal: $pillModal, typeId: $typeId)
+            TimeModalView(timeModal: $pickTime, dateString: $selectedTime)
         }
         .background(Color("Color-4"))
     }
@@ -207,6 +221,6 @@ struct AddReminderView: View {
 
 struct AddReminderView_Previews: PreviewProvider {
     static var previews: some View {
-        AddReminderView(typeId: 0, selectedDate: "")
+        AddReminderView(typeId: 0, selectedTime: "")
     }
 }

@@ -24,7 +24,7 @@ struct ReminderView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: AddReminderView(typeId: typeId, selectedDate: selectedDate)) {
+                NavigationLink(destination: AddReminderView(typeId: typeId, selectedTime: selectedDate)) {
                     Image(systemName: "plus")
                         .resizable()
                         .scaledToFill()
