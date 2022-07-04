@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddReminderView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var medicineName: String = ""
     @State var beforeAfterEat: String = ""
     @State var onTap: Bool = true
@@ -199,6 +200,7 @@ struct AddReminderView: View {
                         NetworkManager.shared.postUserReminder(with: .reminder, endPoint: ReminderAPI.postReminder, data: reminderData) { data in
                             print(data)
                         }
+                        self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Save Reminder")
                     }
