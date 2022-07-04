@@ -92,9 +92,10 @@ struct GoalList: View {
     }
     
     private func deleteRow(at indexSet: IndexSet) {
-        NetworkManager.shared.deleteUserGoal(with: .goal, endPoint: GoalAPI.deleteGoal(String(listData[1].fields.id ?? 0))) {
+        guard let index = listData[indexSet.hashValue].id else { return }
+        NetworkManager.shared.deleteUserGoal(with: .goal, endPoint: GoalAPI.deleteGoal(String(index))) {
             goalData in DispatchQueue.main.async {
-                
+
             }
             print(goalData)
         }
