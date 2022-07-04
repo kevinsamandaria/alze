@@ -197,7 +197,7 @@ struct Home: View {
                 ScrollView(.horizontal) {
                     HStack(spacing: 16) {
                         ForEach(reminders) { reminder in
-                            NavigationLink(destination: ReminderView()) {
+                            NavigationLink(destination: ReminderView(typeId: 0)) {
                                 CardReminder(reminder: reminder)
                                 
                             }
