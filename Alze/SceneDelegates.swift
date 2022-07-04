@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import AuthenticationServices
+
 class SceneDelegate: UIResponder {
   var window: UIWindow?
 }
