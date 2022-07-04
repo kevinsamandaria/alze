@@ -174,7 +174,7 @@ struct AddReminderView: View {
                 
                 Group{
                     Button {
-                        let reminderData = ReminderNetworkModel(fields: ReminderNetworkModelField(title: medicineName, type: reminderModel.getType(status: typeId ), typeId: typeId, medicineTaken: beforeAfterEat, status: "Not Done", statusId: 1, userToken: KeychainItem.getToken))
+                        let reminderData = ReminderNetworkModel(fields: ReminderNetworkModelField(title: medicineName, type: reminderModel.getType(status: typeId ), typeId: typeId, mediceTaken: beforeAfterEat, status: "Not Done", statusId: 1, userToken: KeychainItem.getToken))
                         print(reminderData)
                         NetworkManager.shared.postUserReminder(with: .reminder, endPoint: ReminderAPI.postReminder, data: reminderData) { data in
                             print(data)

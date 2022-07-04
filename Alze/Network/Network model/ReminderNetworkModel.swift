@@ -12,8 +12,8 @@ struct ReminderRecords: Codable{
 }
 
 struct ReminderNetworkModel: Codable {
-    var id: String = ""
-    var createdTime: String = ""
+    var id: String?
+    var createdTime: String?
     var fields: ReminderNetworkModelField
 }
 
@@ -22,10 +22,10 @@ struct ReminderNetworkModelField: Codable {
     var title: String?
     var type: String?
     var typeId: Int?
-    var days: [String]?
+//    var days: [String]?
     var time: String?
-    var medicineTaken: String?
-    var repeatDay: [String]?
+    var mediceTaken: String?
+//    var repeatDay: [String]?
     var status : String?
     var statusId: Int?
     var userToken: String
