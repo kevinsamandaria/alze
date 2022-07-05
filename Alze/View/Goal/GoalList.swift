@@ -127,7 +127,6 @@ struct ListCell: View{
         .padding(.vertical)
         .padding(.leading, 6)
         .cornerRadius(16)
-        
     }
 }
 

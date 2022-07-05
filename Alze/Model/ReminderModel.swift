@@ -9,7 +9,7 @@ import Foundation
 
 struct ReminderModel: Identifiable, Hashable {
     var id = UUID()
-    var image: String?
+//    var image: String?
     var type: Int
     var status: Int
     var repeatArray: [Int]
