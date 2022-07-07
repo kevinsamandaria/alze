@@ -1,4 +1,4 @@
-## alze
+## Alze
 Alze is application for help alzheimer's caregiver by tracking patient mobility, cognition and personal care. This app will have daily goals to achive to slow down the severity of the disease. This app also give reminder to take medicine so the patient medication is not missed. Every daily achieved goals in this app also have a note that can be shared to every family caregiver to record the progress of the patient in order to make a report to the family or the need for a medical examination.
 
 ## App Screenshoot
@@ -16,6 +16,6 @@ Alze is application for help alzheimer's caregiver by tracking patient mobility,
 https://testflight.apple.com/join/VuZeV7Nw
 
 ## Alzhe Team Member
-<p alignment="center"> 
+<p align="center"> 
   <img src="https://user-images.githubusercontent.com/69495883/177809043-2e066538-616a-49ca-b60b-16803da65b17.png" width="800">
 </p>
