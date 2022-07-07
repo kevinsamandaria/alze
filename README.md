@@ -7,12 +7,12 @@ Alze is application for help alzheimer's caregiver by tracking patient mobility,
     <td>Login & Sign In</td>
     <td>Home</td>
     <td>Reminder</td>
+    <td>Add Reminder</td>
+    <td>Goals</td>
     <td>Present day in purple and selected day in pink</td>
     <td>Present day in purple and selected day in pink</td>
     <td>Present day in purple and selected day in pink</td>
-    <td>Present day in purple and selected day in pink</td>
-    <td>Present day in purple and selected day in pink</td>
-    <td>Present day in purple and selected day in pink</td>
+    <td>History</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/69495883/177800401-e3888fb6-4fb4-4568-81be-54ee9526cb60.png" width="400"></td>
