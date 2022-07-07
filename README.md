@@ -11,3 +11,11 @@ Alze is application for help alzheimer's caregiver by tracking patient mobility,
   <img src="https://user-images.githubusercontent.com/69495883/177800555-a3eae5f6-ce25-4144-96c1-db061a310e28.png" width="200">
   <img src="https://user-images.githubusercontent.com/69495883/177800542-fdebb58e-525e-4a8b-aafa-f1fe3b0cafd5.png" width="200">
 </p>
+
+## Test Fligth Link
+https://testflight.apple.com/join/VuZeV7Nw
+
+## Alzhe Team Member
+<img src="https://user-images.githubusercontent.com/69495883/177809043-2e066538-616a-49ca-b60b-16803da65b17.png" width="350">
+
+
