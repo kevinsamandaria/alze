@@ -9,10 +9,8 @@ Alze is application for help alzheimer's caregiver by tracking patient mobility,
     <td>Reminder</td>
     <td>Add Reminder</td>
     <td>Goals</td>
-    <td>Present day in purple and selected day in pink</td>
-    <td>Present day in purple and selected day in pink</td>
-    <td>Present day in purple and selected day in pink</td>
-    <td>History</td>
+    <td>Goals Description</td>
+    <td>Add Goals</td>
   </tr>
   <tr>
     <td><img src="https://user-images.githubusercontent.com/69495883/177800401-e3888fb6-4fb4-4568-81be-54ee9526cb60.png" width="400"></td>
@@ -23,7 +21,6 @@ Alze is application for help alzheimer's caregiver by tracking patient mobility,
     <td><img src="https://user-images.githubusercontent.com/69495883/177800555-a3eae5f6-ce25-4144-96c1-db061a310e28.png" width="400"></td>
     <td><img src="https://user-images.githubusercontent.com/69495883/177800542-fdebb58e-525e-4a8b-aafa-f1fe3b0cafd5.png" width="400"></td>
     <td><img src="https://user-images.githubusercontent.com/69495883/177800542-fdebb58e-525e-4a8b-aafa-f1fe3b0cafd5.png" width="400"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800726-88d572ee-1982-4ba8-9827-5a2daaf0d3bf.png" width="400"></td>
   </tr>
  </table>
 
