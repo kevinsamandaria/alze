@@ -16,6 +16,6 @@ Alze is application for help alzheimer's caregiver by tracking patient mobility,
 https://testflight.apple.com/join/VuZeV7Nw
 
 ## Alzhe Team Member
-<img src="https://user-images.githubusercontent.com/69495883/177809043-2e066538-616a-49ca-b60b-16803da65b17.png" width="800">
-
-
+<p alignment="center"> 
+  <img src="https://user-images.githubusercontent.com/69495883/177809043-2e066538-616a-49ca-b60b-16803da65b17.png" width="800">
+</p>
