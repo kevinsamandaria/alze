@@ -5,8 +5,8 @@ Alze is application for help alzheimer's caregiver by tracking patient mobility,
 <table>
   <tr>
     <td>Login & Sign In</td>
-    <td>Holiday Mention</td>
-    <td>Present day in purple and selected day in pink</td>
+    <td>Home</td>
+    <td>Reminder</td>
     <td>Present day in purple and selected day in pink</td>
     <td>Present day in purple and selected day in pink</td>
     <td>Present day in purple and selected day in pink</td>
@@ -15,15 +15,15 @@ Alze is application for help alzheimer's caregiver by tracking patient mobility,
     <td>Present day in purple and selected day in pink</td>
   </tr>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800401-e3888fb6-4fb4-4568-81be-54ee9526cb60.png" width="250"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800421-c3757ada-01fe-4266-9b3e-b48f4b97f508.png" width="250"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800448-73ff9087-0084-4a39-9b39-abfc668cc1eb.png" width="250"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177799008-9a3adcb4-298a-41d7-87de-a9d7cea5d75c.png" width="250"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800527-ba0f42eb-0138-4f1f-928d-0a70bfb54318.png" width="250"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800555-a3eae5f6-ce25-4144-96c1-db061a310e28.png" width="250"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800542-fdebb58e-525e-4a8b-aafa-f1fe3b0cafd5.png" width="250"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800542-fdebb58e-525e-4a8b-aafa-f1fe3b0cafd5.png" width="250"></td>
-    <td><img src="https://user-images.githubusercontent.com/69495883/177800726-88d572ee-1982-4ba8-9827-5a2daaf0d3bf.png" width="250"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177800401-e3888fb6-4fb4-4568-81be-54ee9526cb60.png" width="400"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177800421-c3757ada-01fe-4266-9b3e-b48f4b97f508.png" width="400"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177800448-73ff9087-0084-4a39-9b39-abfc668cc1eb.png" width="400"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177799008-9a3adcb4-298a-41d7-87de-a9d7cea5d75c.png" width="400"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177800527-ba0f42eb-0138-4f1f-928d-0a70bfb54318.png" width="400"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177800555-a3eae5f6-ce25-4144-96c1-db061a310e28.png" width="400"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177800542-fdebb58e-525e-4a8b-aafa-f1fe3b0cafd5.png" width="400"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177800542-fdebb58e-525e-4a8b-aafa-f1fe3b0cafd5.png" width="400"></td>
+    <td><img src="https://user-images.githubusercontent.com/69495883/177800726-88d572ee-1982-4ba8-9827-5a2daaf0d3bf.png" width="400"></td>
   </tr>
  </table>
 
